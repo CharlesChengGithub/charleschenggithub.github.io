@@ -1,0 +1,118 @@
+{% macro pub_item(p) %}
+<li>{{ authors(p, "zh") }}. {% if p.group == "book" %}<span class="book-title">{{ title_of(p, "zh") }}</span>{% else %}{{ title_of(p, "zh") }}{% endif %}. <span class="status">{{ status(p, "zh") }}</span>.</li>
+{% endmacro %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>{{ P.name.zh }} 简历</title>
+<link rel="stylesheet" href="cv.css">
+</head>
+<body class="cv-zh">
+
+<header class="cv-head">
+  <div>
+    <h1>{{ P.name.zh }}</h1>
+    <p>{{ P.affiliation.zh }} {{ P.position.zh }}（预计 {{ P.graduation.zh }}毕业）</p>
+    <p class="contact">
+      邮箱：<span>{{ P.email }}</span>
+      {% if full and X.get("phone") %}　电话：{{ X.phone | fmt }}{% endif %}
+      <br>主页：<span>{{ P.website | replace("https://", "") }}</span>
+      　GitHub：<span>{{ P.github | replace("https://github.com/", "") }}</span>
+    </p>
+  </div>
+  {% if full %}
+  <div class="photo-box">
+    {% if photo %}<img src="{{ photo }}" alt="照片">{% else %}<span class="todo">[待填：照片]</span>{% endif %}
+  </div>
+  {% endif %}
+</header>
+
+{% if full and X.get("basic_zh") %}
+<section>
+  <h2>基本信息</h2>
+  <dl class="kv basic">
+    {% for b in X.basic_zh %}<dt>{{ b.label }}</dt><dd>{{ b.value | fmt }}</dd>{% endfor %}
+  </dl>
+</section>
+{% endif %}
+
+<section>
+  <h2>教育背景</h2>
+  {% for e in P.education %}
+  <div class="row">
+    <div>
+      <strong>{{ e.school.zh | fmt }}</strong>　{{ e.degree.zh | fmt }}
+      {% if e.note is defined %}<br><span class="note">{{ e.note.zh | fmt }}</span>{% endif %}
+    </div>
+    <div class="date">{{ e.years.zh | fmt }}</div>
+  </div>
+  {% endfor %}
+</section>
+
+<section>
+  <h2>研究方向</h2>
+  <p>{{ P.interests.zh | join("；") }}</p>
+</section>
+
+<section>
+  <h2>科研成果</h2>
+  {% set n = namespace(i=1) %}
+  {% for g, head in [("review", "返修与在审论文"), ("working", "工作论文"), ("book", "著作")] if g in groups %}
+  <h3>{{ head }}</h3>
+  <ol class="pubs" start="{{ n.i }}">
+    {% for p in groups[g] %}{{ pub_item(p) }}{% set n.i = n.i + 1 %}{% endfor %}
+  </ol>
+  {% endfor %}
+  {% if "wip" in groups %}
+  <h3>在研项目</h3>
+  <ul class="plain">
+    {% for p in groups.wip %}<li>{{ p.title_zh or p.title_en }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+{% if P.projects %}
+<section>
+  <h2>科研项目</h2>
+  <ul class="plain">
+    {% for x in P.projects %}<li>{{ x.zh | fmt }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if P.teaching %}
+<section>
+  <h2>教学经历</h2>
+  <ul class="plain">
+    {% for x in P.teaching %}<li>{{ x.zh | fmt }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section>
+  <h2>专业技能</h2>
+  <dl class="kv">
+    {% for s in P.skills %}<dt>{{ s.label.zh }}</dt><dd>{{ s.text.zh | fmt }}</dd>{% endfor %}
+  </dl>
+</section>
+
+{% if full and X.get("references") %}
+<section>
+  <h2>推荐人</h2>
+  <div class="refs">
+    {% for r in X.references %}
+    <div>
+      <p><strong>{{ r.name.zh | fmt }}</strong>{% if r.role.zh %}（{{ r.role.zh }}）{% endif %}</p>
+      {% if r.affiliation.zh %}<p>{{ r.affiliation.zh }}</p>{% endif %}
+      {% if r.email %}<p>{{ r.email }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<p class="updated">更新于 {{ updated }}</p>
+
+</body>
+</html>

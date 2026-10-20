@@ -1,0 +1,128 @@
+/* CV print stylesheet (A4). Printed to PDF by build.py with headless Chrome. */
+
+@page {
+  size: A4;
+  margin: 17mm 18mm 18mm;
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font: 8pt -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: #8a8a8a;
+  }
+}
+
+:root {
+  --fg: #161616;
+  --muted: #5d5d5d;
+  --rule: #c9c9c9;
+  --accent: #1d4f7c;
+  --todo-bg: #fff1a8;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; color: var(--fg); }
+body {
+  font-size: 10.3pt;
+  line-height: 1.42;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.cv-en { font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, "Times New Roman", serif; }
+/* Latin glyphs from Times New Roman, CJK from Songti. Sans parts use Heiti, not PingFang:
+   PingFang maps some glyphs to Kangxi radicals in Chrome PDFs, which breaks copied text. */
+.cv-zh { font-family: "Times New Roman", "Songti SC", STSong, SimSun, serif; font-size: 10.5pt; line-height: 1.6;
+         --cjk-sans: "Helvetica Neue", "Heiti SC", STHeiti, "Microsoft YaHei", sans-serif; }
+
+a { color: inherit; text-decoration: none; }
+p { margin: 0; }
+strong { font-weight: 700; }
+
+/* ---------- header ---------- */
+.cv-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12mm;
+  padding-bottom: 3.5mm;
+  border-bottom: 1.2pt solid var(--fg);
+  margin-bottom: 4mm;
+}
+.cv-head h1 {
+  font-size: 21pt;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 1.5mm;
+  line-height: 1.1;
+}
+.cv-zh .cv-head h1 { font-family: var(--cjk-sans); letter-spacing: 0.12em; font-weight: 600; }
+.cv-head .sub { color: var(--muted); }
+.contact { text-align: right; font-size: 9.4pt; line-height: 1.5; }
+.cv-zh .contact { text-align: left; }
+.photo-box {
+  width: 25mm; height: 33mm;
+  border: 0.6pt dashed var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  flex: none; overflow: hidden;
+  font-size: 8pt;
+}
+.photo-box:has(img) { border: 0; }
+.photo-box img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.cv-zh .cv-head { align-items: center; }
+
+/* ---------- sections ---------- */
+section { margin-top: 4.2mm; }
+h2 {
+  font-size: 10.3pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 1.8mm;
+  padding-bottom: 0.8mm;
+  border-bottom: 0.5pt solid var(--rule);
+  break-after: avoid;
+}
+.cv-zh h2 {
+  font-family: var(--cjk-sans);
+  font-size: 11pt;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.06em;
+}
+h3 {
+  font-size: 10pt;
+  font-weight: 600;
+  font-style: italic;
+  margin: 2.2mm 0 1mm;
+  break-after: avoid;
+}
+.cv-zh h3 { font-style: normal; font-family: var(--cjk-sans); font-size: 10pt; }
+
+.row { display: flex; justify-content: space-between; gap: 6mm; margin-bottom: 1.4mm; break-inside: avoid; }
+.row .date { flex: none; text-align: right; color: var(--muted); white-space: nowrap; }
+.row .note { color: var(--muted); }
+
+.pubs { margin: 0; padding-left: 5.5mm; }
+.pubs li { margin-bottom: 1.8mm; break-inside: avoid; padding-left: 0.6mm; }
+.pubs li::marker { color: var(--muted); font-size: 9pt; }
+.pubs .status { font-style: italic; }
+.cv-zh .pubs .status { font-style: normal; color: var(--muted); }
+.pubs .status em { font-style: normal; }
+.pubs .book-title { font-style: italic; }
+.cv-zh .pubs .book-title { font-style: normal; }
+.cv-en .pubs .status em { font-style: italic; }
+
+.plain { margin: 0; padding-left: 4.5mm; }
+.plain li { margin-bottom: 1mm; }
+
+dl.kv { display: grid; grid-template-columns: max-content 1fr; gap: 0.8mm 5mm; margin: 0; }
+dl.kv dt { font-weight: 600; }
+dl.kv dd { margin: 0; }
+.cv-zh dl.kv dt { font-family: var(--cjk-sans); font-weight: 500; }
+dl.basic { grid-template-columns: max-content 1fr max-content 1fr; }
+
+.refs { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 8mm; }
+.refs p { line-height: 1.4; }
+
+.updated { margin-top: 6mm; font-size: 8.5pt; color: var(--muted); }
+
+.todo { background: var(--todo-bg); border-radius: 2px; padding: 0 0.2em; font-style: normal; }

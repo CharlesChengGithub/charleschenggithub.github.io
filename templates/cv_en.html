@@ -1,0 +1,124 @@
+{% macro pub_item(p) %}
+<li>{% if p.group == "book" %}<span class="book-title">{{ title_of(p, "en") }}</span>{% else %}“{{ title_of(p, "en") }}”{% endif %}{% set co = coauthors(p, "en") %}{% if co %} ({{ co }}){% endif %}. <span class="status">{{ status(p, "en") }}</span>.</li>
+{% endmacro %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ P.short_name.en }} — Curriculum Vitae</title>
+<link rel="stylesheet" href="cv.css">
+</head>
+<body class="cv-en">
+
+<header class="cv-head">
+  <div>
+    <h1>{{ P.name.en }}</h1>
+    <p>{{ P.affiliation.en }}</p>
+    <p class="sub">{{ P.address.en }}</p>
+  </div>
+  <div class="contact">
+    <p><a href="mailto:{{ P.email }}">{{ P.email }}</a></p>
+    {% if full and X.get("phone") %}<p>{{ X.phone | fmt }}</p>{% endif %}
+    <p><a href="{{ P.website }}">{{ P.website | replace("https://", "") }}</a></p>
+    <p><a href="{{ P.github }}">{{ P.github | replace("https://", "") }}</a></p>
+  </div>
+</header>
+
+<section>
+  <h2>Education</h2>
+  {% for e in P.education %}
+  <div class="row">
+    <div>
+      <strong>{{ e.degree.en | fmt }}</strong>, {{ e.school.en | fmt }}
+      {% if e.note is defined %}<br><span class="note">{{ e.note.en | fmt }}</span>{% endif %}
+    </div>
+    <div class="date">{{ e.years.en | fmt }}</div>
+  </div>
+  {% endfor %}
+</section>
+
+<section>
+  <h2>Research Interests</h2>
+  <p>{{ P.interests.en | join("; ") }}</p>
+</section>
+
+{% if "review" in groups %}
+<section>
+  <h2>Papers under Review</h2>
+  <ol class="pubs">
+    {% for p in groups.review %}{{ pub_item(p) }}{% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if "working" in groups %}
+<section>
+  <h2>Working Papers</h2>
+  <ol class="pubs">
+    {% for p in groups.working %}{{ pub_item(p) }}{% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if "book" in groups %}
+<section>
+  <h2>Books</h2>
+  <ol class="pubs">
+    {% for p in groups.book %}{{ pub_item(p) }}{% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if "wip" in groups %}
+<section>
+  <h2>Work in Progress</h2>
+  <ol class="pubs">
+    {% for p in groups.wip %}<li>“{{ p.title_en }}”</li>{% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if P.projects %}
+<section>
+  <h2>Research Projects</h2>
+  <ul class="plain">
+    {% for x in P.projects %}<li>{{ x.en | fmt }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if P.teaching %}
+<section>
+  <h2>Teaching</h2>
+  <ul class="plain">
+    {% for x in P.teaching %}<li>{{ x.en | fmt }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section>
+  <h2>Skills</h2>
+  <dl class="kv">
+    {% for s in P.skills %}<dt>{{ s.label.en }}</dt><dd>{{ s.text.en | fmt }}</dd>{% endfor %}
+  </dl>
+</section>
+
+{% if full and X.get("references") %}
+<section>
+  <h2>References</h2>
+  <div class="refs">
+    {% for r in X.references %}
+    <div>
+      <p><strong>{{ r.name.en | fmt }}</strong>{% if r.role.en %} ({{ r.role.en }}){% endif %}</p>
+      {% if r.affiliation.en %}<p>{{ r.affiliation.en }}</p>{% endif %}
+      {% if r.email %}<p>{{ r.email }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<p class="updated">Last updated: {{ updated }}</p>
+
+</body>
+</html>

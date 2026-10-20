@@ -1,0 +1,119 @@
+{% macro paper(p) %}
+<article class="paper" id="{{ p.id }}">
+  <h4 class="paper-title">
+    {% if p.links.get("pdf") %}<a href="{{ p.links.pdf }}">{{ title_of(p, lang) }}</a>{% else %}{{ title_of(p, lang) }}{% endif %}
+  </h4>
+  {% set co = coauthors(p, lang) %}
+  <p class="paper-meta">{% if co %}<span>{{ co }}</span><span class="sep" aria-hidden="true">·</span>{% endif %}<span class="status status-{{ p.group }}">{{ status(p, lang) }}</span></p>
+  {% set summary = p["summary_" ~ lang] if p["summary_" ~ lang] is defined else "" %}
+  {% if summary %}<p class="paper-summary">{{ summary | fmt }}</p>{% endif %}
+  {% set ab = abstract_of(p, lang) %}
+  {% if ab[0] or p.links %}
+  <div class="paper-actions">
+    {% if ab[0] %}
+    <details>
+      <summary>{{ ab[1] }}</summary>
+      <div class="abstract">{{ ab[0] | paras }}</div>
+    </details>
+    {% endif %}
+    {% for k, v in p.links.items() if k != "pdf" %}<a class="chip" href="{{ v }}">{{ k | upper if k in ["ssrn"] else k | capitalize }}</a>{% endfor %}
+  </div>
+  {% endif %}
+</article>
+{% endmacro %}
+{% set cv_file = "Chao_Cheng_CV.pdf" if lang == "en" else "Chao_Cheng_CV_zh.pdf" %}
+<!doctype html>
+<html lang="{{ L.html_lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ P.name[lang] }}</title>
+<meta name="description" content="{{ P.name[lang] }}, {{ P.position[lang] }}, {{ P.affiliation[lang] }}. {{ P.interests[lang] | join('; ') }}.">
+<meta property="og:title" content="{{ P.name[lang] }}">
+<meta property="og:description" content="{{ P.position[lang] }}, {{ P.affiliation[lang] }}">
+{% if P.photo %}<meta property="og:image" content="{{ P.website }}/{{ P.photo }}">{% endif %}
+<link rel="alternate" hreflang="en" href="{{ P.website }}/">
+<link rel="alternate" hreflang="zh-CN" href="{{ P.website }}/zh/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4f7c'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="{{ prefix }}assets/style.css">
+</head>
+<body class="lang-{{ lang }}">
+
+<div class="page">
+
+  <aside class="profile">
+    <div class="profile-inner">
+      {% if P.photo %}
+      <img class="photo" src="{{ prefix }}{{ P.photo }}" alt="{{ P.name[lang] }}" width="480" height="600">
+      {% endif %}
+      <div class="id">
+        <h1 class="name">{{ P.short_name[lang] }}</h1>
+        <p class="alt-name">{{ "程超 · Charles" if lang == "en" else "Chao (Charles) Cheng" }}</p>
+        <p class="role">{{ P.position[lang] }}</p>
+        <p class="org">{{ P.affiliation[lang] }}</p>
+        <p class="grad">{{ L.expected }}{{ ": " if lang == "en" else "：" }}{{ P.graduation[lang] }}</p>
+      </div>
+      <ul class="contact">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:{{ P.email }}">{{ P.email }}</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <a href="{{ prefix }}cv/{{ cv_file }}">{{ L.cv_pdf }}</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <a href="{{ P.github }}">GitHub</a>
+        </li>
+        {% if P.orcid %}<li><a href="{{ P.orcid }}">ORCID</a></li>{% endif %}
+      </ul>
+      <nav class="toc" aria-label="{{ L.nav_research }}">
+        <a href="#about">{{ L.nav_about }}</a>
+        <a href="#research">{{ L.nav_research }}</a>
+        {% if "book" in groups %}<a href="#books">{{ L.nav_books }}</a>{% endif %}
+      </nav>
+    </div>
+    <a class="lang-switch" href="{{ L.other_href }}" hreflang="{{ 'zh-CN' if lang == 'en' else 'en' }}">{{ L.other_lang }}</a>
+  </aside>
+
+  <main class="content">
+
+    <section id="about">
+      <h2>{{ L.nav_about }}</h2>
+      {{ P.bio[lang] | paras }}
+      <h3 class="label">{{ L.interests }}</h3>
+      <ul class="interests">
+        {% for it in P.interests[lang] %}<li>{{ it }}</li>{% endfor %}
+      </ul>
+    </section>
+
+    <section id="research">
+      <h2>{{ L.research }}</h2>
+      {% for g in ["review", "working", "wip"] if g in groups %}
+      <h3 class="label group">{{ L["group_" ~ g] }}<span class="count">{{ groups[g] | length }}</span></h3>
+      {% for p in groups[g] %}
+      {{ paper(p) }}
+      {% endfor %}
+      {% endfor %}
+    </section>
+
+    {% if "book" in groups %}
+    <section id="books">
+      <h2>{{ L.group_book }}</h2>
+      {% for p in groups.book %}
+      {{ paper(p) }}
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    <footer class="footer">
+      <p>{{ P.name[lang] }} · {{ P.affiliation[lang] }} · {{ P.address[lang] }}</p>
+      <p>{{ L.updated }}{{ ": " if lang == "en" else "：" }}{{ updated }}</p>
+    </footer>
+
+  </main>
+</div>
+
+</body>
+</html>

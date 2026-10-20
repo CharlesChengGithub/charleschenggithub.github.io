@@ -1,0 +1,106 @@
+# 个人信息（公开）。网站和简历共用。
+# 只放可以公开的内容；电话、出生年月、推荐人等放在 ../cv_private/private.yaml，不进仓库。
+# 方括号里写"待填"或"待确认"的地方，构建时会高亮并在终端列出。
+
+name:
+  en: Chao (Charles) Cheng
+  zh: 程超
+short_name:
+  en: Chao Cheng
+  zh: 程超
+
+position:
+  en: Ph.D. Candidate in Finance
+  zh: 金融学博士研究生
+affiliation:
+  en: School of Finance, Zhongnan University of Economics and Law
+  zh: 中南财经政法大学金融学院
+address:
+  en: Wuhan 430073, China
+  zh: 湖北省武汉市 430073
+
+email: charlescheng1992@gmail.com
+website: https://charleschenggithub.github.io
+github: https://github.com/CharlesChengGithub
+orcid: ""            # 有了就填，例如 https://orcid.org/0000-0000-0000-0000
+photo: assets/photo.jpg
+
+graduation:
+  en: June 2027
+  zh: 2027 年 6 月
+
+interests:
+  en:
+    - Economics of artificial intelligence
+    - Computational economics (agent-based models, reinforcement learning)
+    - Behavioral finance and futures markets
+    - Household finance and policy evaluation
+  zh:
+    - 人工智能经济学
+    - 计算经济学（多主体模型、强化学习）
+    - 行为金融与期货市场
+    - 家庭金融与政策评估
+
+bio:
+  en: |
+    I am a Ph.D. candidate at the School of Finance, Zhongnan University of Economics and Law, and expect to graduate in June 2027. I studied information security at Hefei University of Technology and finance at Hainan University before starting my Ph.D.
+
+    My research asks how artificial intelligence changes economic decisions and markets, and uses computation to evaluate policy. In one line of work, AI is the object of study: how AI that generates research candidates changes the demand for the specialists who validate them, whether pricing algorithms collude more under price floors, whether firms that adopt generative AI employ fewer back-office staff, and how students choose college majors once AI is in view. In a second line, computation is the method: agent-based models of futures markets and of China's solar photovoltaic industry, and Monte Carlo evidence on overlapping pilot policies.
+  zh: |
+    中南财经政法大学金融学院博士研究生，预计 2027 年 6 月毕业。本科就读于合肥工业大学信息安全专业，硕士就读于海南大学金融学专业。
+
+    我的研究关注人工智能如何改变经济决策与市场运行，并用计算方法评估政策。一条线索以人工智能为研究对象：AI 生成候选方案、专家负责验证时，研发对专家的需求如何变化；底价规则是否让定价算法更容易合谋；采用生成式 AI 的企业是否减少后台岗位；考生在 AI 冲击下如何选择专业。另一条线索以计算为方法：用多主体模型研究期货市场和光伏组件行业的价格规制，用蒙特卡洛模拟检验试点政策叠加对双重差分估计的影响。
+
+# 教育经历
+education:
+  - degree:
+      en: Ph.D. in Finance (expected)
+      zh: 博士研究生，金融学
+    school:
+      en: Zhongnan University of Economics and Law
+      zh: 中南财经政法大学
+    years: {en: "2023–2027", zh: "2023—2027（预计）"}
+    note:
+      en: "Advisor: Jinlin Zhang"
+      zh: 导师：张金林
+  - degree:
+      en: M.Econ. in Finance
+      zh: 硕士研究生，金融学
+    school:
+      en: Hainan University
+      zh: 海南大学
+    years: {en: "2020–2023", zh: "2020—2023"}
+  - degree:
+      en: B.Eng. in Information Security
+      zh: 本科，信息安全（计算机类）
+    school:
+      en: Hefei University of Technology
+      zh: 合肥工业大学
+    years: {en: "2011–2015", zh: "2011—2015"}
+
+# 科研项目（只写在简历里）
+projects:
+  - en: "Major Program of the National Social Science Fund of China, “Financial Theory and Effective Mechanisms for Advancing Common Prosperity” (22&ZD115), participant; related output: the book *Capital Markets and Common Prosperity*"
+    zh: 国家社会科学基金重大项目“推进共同富裕的金融理论逻辑与有效机制研究”（22&ZD115），参与；相关成果：著作《资本市场与共同富裕：财富创造、分配与治理》
+
+# 教学经历（只写在简历里）。有了再加，格式：- {en: ..., zh: ...}
+teaching: []
+
+skills:
+  - label: {en: Programming, zh: 编程}
+    text:
+      en: Python (agent-based modeling, reinforcement learning, simulation), Stata, LaTeX
+      zh: Python（多主体建模、强化学习、模拟），Stata，LaTeX
+  - label: {en: Data, zh: 数据}
+    text:
+      en: China Household Finance Survey (CHFS), futures brokerage account data, listed-firm annual reports and CSMAR, gaokao admission data
+      zh: 中国家庭金融调查（CHFS）、期货公司账户数据、上市公司年报与 CSMAR、高考录取数据
+  - label: {en: Languages, zh: 语言}
+    text:
+      en: Chinese (native), English (CET-6, 538)
+      zh: 中文（母语），英语（大学英语六级 538 分）
+
+# 合作者。论文条目里的 authors 用这里的键。
+people:
+  cheng: {en: Chao Cheng, zh: 程超, self: true}
+  zhang: {en: Jinlin Zhang, zh: 张金林}
