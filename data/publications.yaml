@@ -1,8 +1,9 @@
 # 论文与著作（公开）。网站研究页和简历的成果部分都从这里生成。
 #
 # 字段说明
-#   group     review（返修/在审）| working（工作论文）| book（著作）| wip（在研，默认不显示）
+#   group     published（已发表/录用）| review（返修/在审）| working（工作论文）| book（著作）| wip（在研，默认不显示）
 #   stage     group 为 review 时必填：revision（返修）| review（在审）
+#             group 为 published 时必填：forthcoming（已录用，卷期未出）| published（已出版，需 year、volume，可加 pages、doi）
 #   order     组内排序，小的在前
 #   lang      稿件写作语言：en | zh。zh 稿在英文页上会标 "(in Chinese)"
 #   authors   作者键，按署名顺序；键在 profile.yaml 的 people 里定义
@@ -10,11 +11,36 @@
 #   title_en_translated: true  英文题目是译名（原稿为中文）
 #   summary_*  一两句话的概要，显示在题目下面
 #   abstract_* 稿件摘要原文；中文页缺中文摘要时显示英文摘要
-#   links     可选：pdf / code / slides / ssrn 等，值为网址
+#   venue     字符串，或 {en: ..., zh: ...}（中文期刊用后者）
+#   links     可选：pdf / code / slides / ssrn / doi 等，值为网址
 #   show      false 表示暂不显示
 #
-# 状态变化（例如录用）只改 stage / group / venue 即可；录用后可加 year、volume、pages、doi。
+# 状态变化（例如录用）只改 group / stage / venue；出版后把 stage 改成 published 并补 year、volume、pages、doi。
 
+
+- id: "anchoring-effect"
+  show: true
+  group: "published"
+  stage: "published"
+  order: 2
+  lang: "zh"
+  authors: [kuang, cheng, chen]
+  venue: {en: "Journal of Systems Science and Mathematical Sciences", zh: "系统科学与数学"}
+  year: 2022
+  volume: "42(8)"
+  pages: "2126–2141"
+  doi: "10.12341/jssms22188"
+  tags: [behavioral, computational]
+  title_en: "The Existence of Anchoring Effect of Chinese Commodity Futures Investors and Its Influence on Market Efficiency"
+  title_zh: "我国商品期货投资者锚定效应的存在性及其对市场有效性的影响"
+  summary_en: |
+    Daily trading data show that commodity futures investors anchor their current quotes on their previous ones. In an agent-based model, anchoring by arbitrageurs lowers volatility and improves price discovery, whereas anchoring by speculators stabilises prices but weakens price discovery.
+  summary_zh: |
+    用期货投资者日度交易数据检验出商品期货投资者的报价锚定效应，并用多主体模拟考察它对市场有效性的影响：套利者的锚定降低价格波动、提升价格发现功能；投机者的锚定虽能稳定价格，却削弱价格发现功能。
+  abstract_zh: |
+    文章基于中国期货投资者日度交易数据，在排除了个体信息对锚定偏差的混淆影响后，检验出中国期货市场投资者在投资商品期货的过程中，其当期报价会对上一次报价存在显著的锚定效应。在实证检验的基础上，文章进一步构建了期货市场上存在锚定效应的投资者交易决策的数理模型，并运用多主体复杂系统模拟的方法对锚定效应和期货市场有效性之间的关系进行了模拟研究。研究发现，套利者的锚定效应能够有效降低期货市场的价格波动性同时提升期货市场对现货市场的价格发现功能；而投机者的锚定效应虽然能稳定期货市场的价格波动，但是却降低了期货市场的价格发现功能。
+  links:
+    doi: "https://doi.org/10.12341/jssms22188"
 
 - id: "ai-validation"
   show: true
@@ -54,9 +80,9 @@
 
 - id: "pv-price-floors"
   show: true
-  group: "review"
-  stage: "revision"
-  order: 3
+  group: "published"
+  stage: "forthcoming"
+  order: 1
   lang: "en"
   authors: [cheng, zhang]
   venue: "Sustainability"
@@ -91,7 +117,7 @@
 - id: "margin-liquidation"
   show: true
   group: "review"
-  stage: "revision"
+  stage: "review"
   order: 5
   lang: "en"
   authors: [cheng, zhang]

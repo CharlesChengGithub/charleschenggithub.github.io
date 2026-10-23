@@ -43,7 +43,7 @@
       <nav class="toc" aria-label="Research">
         <a href="#about">About</a>
         <a href="#research">Research</a>
-<a href="#books">Books</a>      </nav>
+<a href="#software">Software</a><a href="#books">Books</a><a href="#projects">Projects</a>      </nav>
     </div>
     <a class="lang-switch" href="zh/" hreflang="zh-CN">中文</a>
   </aside>
@@ -52,7 +52,7 @@
 
     <section id="about">
       <h2>About</h2>
-      <p>I am a Ph.D. candidate at the School of Finance, Zhongnan University of Economics and Law, and expect to graduate in June 2027. I studied information security at Hefei University of Technology and finance at Hainan University before starting my Ph.D.</p><p>My research asks how artificial intelligence changes economic decisions and markets, and uses computation to evaluate policy. In one line of work, AI is the object of study: how AI that generates research candidates changes the demand for the specialists who validate them, whether pricing algorithms collude more under price floors, whether firms that adopt generative AI employ fewer back-office staff, and how students choose college majors once AI is in view. In a second line, computation is the method: agent-based models of futures markets and of China&#39;s solar photovoltaic industry, and Monte Carlo evidence on overlapping pilot policies.</p>
+      <p>I am a Ph.D. candidate at the School of Finance, Zhongnan University of Economics and Law, and expect to graduate in June 2027. I studied information security, a computer science major, at Hefei University of Technology, worked for four years in overseas brand planning at JAC Motors, and then studied finance at Hainan University.</p><p>My research asks how artificial intelligence changes economic decisions and markets, and uses computation to evaluate policy. In one line of work, AI is the object of study: how AI that generates research candidates changes the demand for the specialists who validate them, whether pricing algorithms collude more under price floors, whether firms that adopt generative AI employ fewer back-office staff, and how students choose college majors once AI is in view. In a second line, computation is the method: agent-based models of futures markets and of China&#39;s solar photovoltaic industry, and Monte Carlo evidence on overlapping pilot policies.</p><p>Programming is central to how I work. I clean and analyze nearly five million futures brokerage records in Python, build agent-based models and reinforcement-learning experiments, and maintain <a href="https://github.com/CharlesChengGithub/llmarket">llmarket</a>, an open-source toolkit in which LLM agents, reinforcement learners and rule-based agents trade in the same market under price regulation that can be switched on and off.</p>
       <h3 class="label">Research interests</h3>
       <ul class="interests">
 <li>Economics of artificial intelligence</li><li>Computational economics (agent-based models, reinforcement learning)</li><li>Behavioral finance and futures markets</li><li>Household finance and policy evaluation</li>      </ul>
@@ -60,7 +60,28 @@
 
     <section id="research">
       <h2>Research</h2>
-      <h3 class="label group">Papers under Review<span class="count">5</span></h3>
+      <h3 class="label group">Publications<span class="count">2</span></h3>
+      <article class="paper" id="pv-price-floors">
+  <h4 class="paper-title">
+Cost-Based Price Floors, Soft Budgets and Capacity Adjustment in China’s Solar Photovoltaic Industry  </h4>
+  <p class="paper-meta"><span>with Jinlin Zhang</span><span class="sep" aria-hidden="true">·</span><span class="status status-published"><em>Sustainability</em>, forthcoming</span></p>
+<p class="paper-summary">An agent-based model of China&#39;s solar PV module industry evaluates bans on below-cost sales. A floor at each firm&#39;s own average total cost lowers utilisation and welfare and slows exit; an industry-reference floor stabilises prices but cuts capacity exit by 75%.</p>  <div class="paper-actions">
+    <details>
+      <summary>Abstract</summary>
+      <div class="abstract"><p>Persistent overcapacity in photovoltaic (PV) manufacturing raises a question for the economic sustainability of renewable-energy supply chains: does protecting producers’ margins help or hinder capacity adjustment? We evaluate cost-based price floors with an agent-based model of China’s PV module industry that features adaptive pricing, market-share-driven investment, credit guarantees and local-government rescues. The model is driven by observed polysilicon prices and reproduces eight of ten moments from public company data within a pre-registered tolerance, although it captures only part of the 2024 price decline. Policy effects are paired comparisons across 200 random seeds. A floor at each firm’s own average total cost lowers utilisation by 5.8 percentage points and welfare by 1.1% over ten years and, in the main specification, slows exit even under hard budgets; its welfare loss grows when products are more substitutable and turns into a gain only when demand is much less price-sensitive, R&amp;D responds strongly to profits or share pressure is very high. An industry-reference floor stabilises prices but cuts capacity exit by 75%; its 1.8% welfare gain falls to 0.5% when surviving firms are not valued as additional variety. An admission standard for new capacity raises utilisation and, while demand plateaus, welfare. Protecting margins is a poor substitute for policies that change the returns to expansion.</p></div>
+    </details>
+  </div>
+</article>
+
+      <article class="paper" id="anchoring-effect">
+  <h4 class="paper-title">
+The Existence of Anchoring Effect of Chinese Commodity Futures Investors and Its Influence on Market Efficiency  </h4>
+  <p class="paper-meta"><span>with Xiong Kuang and Xia Chen</span><span class="sep" aria-hidden="true">·</span><span class="status status-published"><em>Journal of Systems Science and Mathematical Sciences</em>, 2022, 42(8): 2126–2141 (in Chinese)</span></p>
+<p class="paper-summary">Daily trading data show that commodity futures investors anchor their current quotes on their previous ones. In an agent-based model, anchoring by arbitrageurs lowers volatility and improves price discovery, whereas anchoring by speculators stabilises prices but weakens price discovery.</p>  <div class="paper-actions">
+<a class="chip" href="https://doi.org/10.12341/jssms22188">DOI</a>  </div>
+</article>
+
+      <h3 class="label group">Papers under Review<span class="count">4</span></h3>
       <article class="paper" id="ai-validation">
   <h4 class="paper-title">
 When Artificial Intelligence Generates and Experts Validate: Specialist Allocation and the Aggregate Substitutability of Artificial Intelligence in Research  </h4>
@@ -85,18 +106,6 @@ Do Below-Cost Sales Bans Facilitate Algorithmic Collusion? Price Floors, Learnin
   </div>
 </article>
 
-      <article class="paper" id="pv-price-floors">
-  <h4 class="paper-title">
-Cost-Based Price Floors, Soft Budgets and Capacity Adjustment in China’s Solar Photovoltaic Industry  </h4>
-  <p class="paper-meta"><span>with Jinlin Zhang</span><span class="sep" aria-hidden="true">·</span><span class="status status-review">Revise and resubmit, <em>Sustainability</em></span></p>
-<p class="paper-summary">An agent-based model of China&#39;s solar PV module industry evaluates bans on below-cost sales. A floor at each firm&#39;s own average total cost lowers utilisation and welfare and slows exit; an industry-reference floor stabilises prices but cuts capacity exit by 75%.</p>  <div class="paper-actions">
-    <details>
-      <summary>Abstract</summary>
-      <div class="abstract"><p>Persistent overcapacity in photovoltaic (PV) manufacturing raises a question for the economic sustainability of renewable-energy supply chains: does protecting producers’ margins help or hinder capacity adjustment? We evaluate cost-based price floors with an agent-based model of China’s PV module industry that features adaptive pricing, market-share-driven investment, credit guarantees and local-government rescues. The model is driven by observed polysilicon prices and reproduces eight of ten moments from public company data within a pre-registered tolerance, although it captures only part of the 2024 price decline. Policy effects are paired comparisons across 200 random seeds. A floor at each firm’s own average total cost lowers utilisation by 5.8 percentage points and welfare by 1.1% over ten years and, in the main specification, slows exit even under hard budgets; its welfare loss grows when products are more substitutable and turns into a gain only when demand is much less price-sensitive, R&amp;D responds strongly to profits or share pressure is very high. An industry-reference floor stabilises prices but cuts capacity exit by 75%; its 1.8% welfare gain falls to 0.5% when surviving firms are not valued as additional variety. An admission standard for new capacity raises utilisation and, while demand plateaus, welfare. Protecting margins is a poor substitute for policies that change the returns to expansion.</p></div>
-    </details>
-  </div>
-</article>
-
       <article class="paper" id="overlapping-pilots">
   <h4 class="paper-title">
 When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations of China’s City Pilot Policies  </h4>
@@ -112,7 +121,7 @@ When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations
       <article class="paper" id="margin-liquidation">
   <h4 class="paper-title">
 Who Gets Liquidated? Margin Requirements and the Reallocation of Liquidation Risk in Futures Markets: An Agent-Based Systems Analysis  </h4>
-  <p class="paper-meta"><span>with Jinlin Zhang</span><span class="sep" aria-hidden="true">·</span><span class="status status-review">Revise and resubmit, <em>Systems</em></span></p>
+  <p class="paper-meta"><span>with Jinlin Zhang</span><span class="sep" aria-hidden="true">·</span><span class="status status-review">Under review, <em>Systems</em></span></p>
 <p class="paper-summary">Margin requirements shape not only how much forced liquidation occurs but who is liquidated. In an agent-based model disciplined by brokerage data, cutting margins raises liquidation almost entirely among arbitrageurs, while raising them shifts liquidation to speculators bound by their own leverage limits.</p>  <div class="paper-actions">
     <details>
       <summary>Abstract</summary>
@@ -208,6 +217,16 @@ Monitoring and Early Warning of Systemic Financial Risk: The Evolution of Method
 
     </section>
 
+    <section id="software">
+      <h2>Software</h2>
+      <article class="paper software">
+        <h4 class="paper-title"><a href="https://github.com/CharlesChengGithub/llmarket">llmarket</a></h4>
+        <p class="paper-meta"><span>Developer and maintainer · Python · MIT License · v0.1.1, October 2026</span></p>
+        <p class="paper-summary"><strong>An open-source agent-based simulation toolkit for economics, with LLM agents, reinforcement learners and price regulation.</strong> LLM agents, Q-learning agents and rule-based agents compete in the same market. The first built-in scenario is algorithmic pricing under switchable regulation, with five cost-based price floors, price caps, and separate enforcement and disclosure settings. The Q-learning engine reproduces the Calvano et al. (2020) baseline session by session; LLM runs come with response caching, deterministic seeds, a cost ledger with a budget guard and an offline mock client.</p>
+        <div class="paper-actions"><a class="chip" href="https://github.com/CharlesChengGithub/llmarket">GitHub</a></div>
+      </article>
+    </section>
+
     <section id="books">
       <h2>Books</h2>
       <article class="paper" id="abm-book">
@@ -222,6 +241,15 @@ Capital Markets and Common Prosperity: Wealth Creation, Distribution and Governa
   <p class="paper-meta"><span>with Jinlin Zhang</span><span class="sep" aria-hidden="true">·</span><span class="status status-book">Book manuscript (in Chinese)</span></p>
 </article>
 
+    </section>
+
+    <section id="projects">
+      <h2>Research Projects</h2>
+      <ul class="projects">
+        <li><span class="years">Since 2023</span><span class="text">Major Program of the National Social Science Fund of China, “Financial Theory and Effective Mechanisms for Advancing Common Prosperity” (22&amp;ZD115); participant. Related output: the book <em>Capital Markets and Common Prosperity</em></span></li>
+        <li><span class="years">2021–2022</span><span class="text">China Futures Association Joint Research Program (Class II project), “Investor Behavioral Factors in China’s Futures Market and Their Effects on Price Discovery”; team member, ranked second. Responsible for data collection, analysis and the research report</span></li>
+        <li><span class="years">2021</span><span class="text">“Risk Prevention and Regulation of Offshore Finance in the Hainan Free Trade Port”; participant. Reviewed international experience with regulatory sandboxes and drafted a framework adapted to Hainan</span></li>
+      </ul>
     </section>
 
     <footer class="footer">

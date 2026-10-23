@@ -29,7 +29,7 @@ body {
 .cv-en { font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, "Times New Roman", serif; }
 /* Latin glyphs from Times New Roman, CJK from Songti. Sans parts use Heiti, not PingFang:
    PingFang maps some glyphs to Kangxi radicals in Chrome PDFs, which breaks copied text. */
-.cv-zh { font-family: "Times New Roman", "Songti SC", STSong, SimSun, serif; font-size: 10.5pt; line-height: 1.6;
+.cv-zh { font-family: "Times New Roman", "Songti SC", STSong, SimSun, serif; font-size: 10.3pt; line-height: 1.5;
          --cjk-sans: "Helvetica Neue", "Heiti SC", STHeiti, "Microsoft YaHei", sans-serif; }
 
 a { color: inherit; text-decoration: none; }
@@ -70,6 +70,9 @@ strong { font-weight: 700; }
 
 /* ---------- sections ---------- */
 section { margin-top: 4.2mm; }
+.cv-en section { margin-top: 3.8mm; }
+.cv-zh section { margin-top: 3mm; }
+.cv-zh .updated { margin-top: 4mm; }
 h2 {
   font-size: 10.3pt;
   font-weight: 700;
@@ -106,6 +109,7 @@ h3 {
 .pubs li::marker { color: var(--muted); font-size: 9pt; }
 .pubs .status { font-style: italic; }
 .cv-zh .pubs .status { font-style: normal; color: var(--muted); }
+.cv-zh .pubs li { margin-bottom: 1.1mm; }
 .pubs .status em { font-style: normal; }
 .pubs .book-title { font-style: italic; }
 .cv-zh .pubs .book-title { font-style: normal; }

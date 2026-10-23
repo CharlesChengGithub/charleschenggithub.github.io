@@ -30,15 +30,17 @@ PRIVATE = ROOT.parent / "cv_private"       # outside the repo on purpose
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 TODO_RE = re.compile(r"\[(?:待填|待确认)[^\]]*\]")
-GROUPS = ["review", "working", "book", "wip"]
+GROUPS = ["published", "review", "working", "book", "wip"]
 
 LABELS = {
     "en": {
         "html_lang": "en",
         "nav_about": "About", "nav_research": "Research", "nav_books": "Books", "nav_cv": "CV",
+        "nav_software": "Software", "nav_projects": "Projects", "projects": "Research Projects",
         "other_lang": "中文", "other_href": "zh/",
         "interests": "Research interests",
         "research": "Research",
+        "group_published": "Publications",
         "group_review": "Papers under Review",
         "group_working": "Working Papers",
         "group_book": "Books",
@@ -50,6 +52,7 @@ LABELS = {
         "authors_todo": "[待确认：署名]",
         "revision": "Revise and resubmit, *{venue}*",
         "review": "Under review, *{venue}*",
+        "forthcoming": "*{venue}*, forthcoming",
         "working": "Working paper",
         "book": "Book manuscript",
         "in_chinese": " (in Chinese)",
@@ -61,9 +64,11 @@ LABELS = {
     "zh": {
         "html_lang": "zh-CN",
         "nav_about": "简介", "nav_research": "研究", "nav_books": "著作", "nav_cv": "简历",
+        "nav_software": "开源软件", "nav_projects": "科研项目", "projects": "科研项目",
         "other_lang": "English", "other_href": "../",
         "interests": "研究方向",
         "research": "研究",
+        "group_published": "发表论文",
         "group_review": "返修与在审论文",
         "group_working": "工作论文",
         "group_book": "著作",
@@ -75,6 +80,7 @@ LABELS = {
         "authors_todo": "[待确认：署名]",
         "revision": "返修中，*{venue}*",
         "review": "在审，*{venue}*",
+        "forthcoming": "*{venue}*，已录用",
         "working": "工作论文",
         "book": "书稿",
         "in_chinese": "",
@@ -97,6 +103,7 @@ def fmt(text):
         return Markup("")
     s = str(escape(str(text).strip()))
     s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
+    s = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', s)
     s = TODO_RE.sub(lambda m: f'<span class="todo">{m.group(0)}</span>', s)
     return Markup(s)
 
@@ -143,13 +150,25 @@ def author_list(pub, people, lang):
     return Markup(s)
 
 
+def venue_of(pub, lang):
+    v = pub["venue"]
+    return v[lang] if isinstance(v, dict) else v
+
+
 def status_line(pub, lang):
     L = LABELS[lang]
     if pub.get(f"status_{lang}"):
         return pub[f"status_{lang}"]
     g = pub["group"]
     if g == "review":
-        return L[pub["stage"]].format(venue=pub["venue"])
+        return L[pub["stage"]].format(venue=venue_of(pub, lang))
+    if g == "published":
+        if pub["stage"] == "forthcoming":
+            return L["forthcoming"].format(venue=venue_of(pub, lang))
+        s = f'*{venue_of(pub, lang)}*, {pub["year"]}, {pub["volume"]}'
+        if pub.get("pages"):
+            s += f': {pub["pages"]}'
+        return s + (L["in_chinese"] if pub["lang"] == "zh" else "")
     if g == "book":
         s = L["book"] + (L["in_chinese"] if pub["lang"] == "zh" else "")
         if pub.get("publisher"):
@@ -191,6 +210,10 @@ def load():
         assert p["group"] in GROUPS, p["id"]
         if p["group"] == "review":
             assert p.get("stage") in ("revision", "review") and p.get("venue"), p["id"]
+        if p["group"] == "published":
+            assert p.get("stage") in ("forthcoming", "published") and p.get("venue"), p["id"]
+            if p["stage"] == "published":
+                assert p.get("year") and p.get("volume"), p["id"]
         for k in p["authors"]:
             assert k in people, f"{p['id']}: unknown author key {k}"
     private = {}

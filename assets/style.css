@@ -184,7 +184,7 @@ h3.group { margin-top: 2.2rem; padding-bottom: 0.55rem; border-bottom: 1px solid
 .paper-meta .sep { margin: 0 0.45em; color: var(--faint); }
 .status em { font-style: italic; }
 .lang-zh .status em { font-style: normal; }
-.status-review { color: var(--accent); }
+.status-published, .status-review { color: var(--accent); }
 .paper-summary { margin: 0 0 0.5rem; font-size: 0.95rem; }
 .paper-actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.5rem 0.9rem; font-size: 0.86rem; }
 .paper-actions details { flex-basis: 100%; }
@@ -221,6 +221,24 @@ details[open] > summary::before { transform: rotate(45deg) translate(-1px, -1px)
 .abstract p:last-child { margin-bottom: 0; }
 .chip { border: 1px solid var(--rule); border-radius: 999px; padding: 0 0.6rem; }
 
+/* ---------- software and projects ---------- */
+#software .paper:first-of-type { padding-top: 0.2rem; }
+.software .paper-title { font-family: var(--mono, ui-monospace, "SF Mono", Menlo, Consolas, monospace); font-size: 1.02rem; }
+.software .paper-summary strong { font-weight: 600; }
+.projects { list-style: none; padding: 0; margin: 0; }
+.projects li {
+  display: grid;
+  grid-template-columns: 5.2rem 1fr;
+  gap: 0 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+.projects li:first-child { padding-top: 0.2rem; }
+.projects li:last-child { border-bottom: 0; }
+.projects .years { grid-column: 1; color: var(--muted); font-size: 0.86rem; font-variant-numeric: tabular-nums; padding-top: 0.1rem; }
+.projects .text { grid-column: 2; }
+
 /* ---------- footer ---------- */
 .footer { border-top: 1px solid var(--rule); padding-top: 1.1rem; font-size: 0.82rem; color: var(--faint); }
 .footer p { margin: 0.15rem 0; }
@@ -230,6 +248,8 @@ details[open] > summary::before { transform: rotate(45deg) translate(-1px, -1px)
 
 /* ---------- narrow screens ---------- */
 @media (max-width: 860px) {
+  .projects li { grid-template-columns: 1fr; }
+  .projects .years, .projects .text { grid-column: 1; }
   html { font-size: 16px; }
   .page { display: block; padding: 3.2rem 16px 2rem; }
   .profile { margin-bottom: 2.4rem; }

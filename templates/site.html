@@ -16,7 +16,7 @@
       <div class="abstract">{{ ab[0] | paras }}</div>
     </details>
     {% endif %}
-    {% for k, v in p.links.items() if k != "pdf" %}<a class="chip" href="{{ v }}">{{ k | upper if k in ["ssrn"] else k | capitalize }}</a>{% endfor %}
+    {% for k, v in p.links.items() if k != "pdf" %}<a class="chip" href="{{ v }}">{{ k | upper if k in ["ssrn", "doi"] else k | capitalize }}</a>{% endfor %}
   </div>
   {% endif %}
 </article>
@@ -71,7 +71,9 @@
       <nav class="toc" aria-label="{{ L.nav_research }}">
         <a href="#about">{{ L.nav_about }}</a>
         <a href="#research">{{ L.nav_research }}</a>
+        {% if P.software %}<a href="#software">{{ L.nav_software }}</a>{% endif %}
         {% if "book" in groups %}<a href="#books">{{ L.nav_books }}</a>{% endif %}
+        {% if P.projects %}<a href="#projects">{{ L.nav_projects }}</a>{% endif %}
       </nav>
     </div>
     <a class="lang-switch" href="{{ L.other_href }}" hreflang="{{ 'zh-CN' if lang == 'en' else 'en' }}">{{ L.other_lang }}</a>
@@ -90,7 +92,7 @@
 
     <section id="research">
       <h2>{{ L.research }}</h2>
-      {% for g in ["review", "working", "wip"] if g in groups %}
+      {% for g in ["published", "review", "working", "wip"] if g in groups %}
       <h3 class="label group">{{ L["group_" ~ g] }}<span class="count">{{ groups[g] | length }}</span></h3>
       {% for p in groups[g] %}
       {{ paper(p) }}
@@ -98,12 +100,37 @@
       {% endfor %}
     </section>
 
+    {% if P.software %}
+    <section id="software">
+      <h2>{{ L.nav_software }}</h2>
+      {% for sw in P.software %}
+      <article class="paper software">
+        <h4 class="paper-title"><a href="{{ sw.url }}">{{ sw.name }}</a></h4>
+        <p class="paper-meta"><span>{{ sw.meta[lang] }}</span></p>
+        <p class="paper-summary"><strong>{{ sw.tagline[lang] }}.</strong> {{ sw.summary[lang] | fmt }}</p>
+        <div class="paper-actions"><a class="chip" href="{{ sw.url }}">GitHub</a></div>
+      </article>
+      {% endfor %}
+    </section>
+    {% endif %}
+
     {% if "book" in groups %}
     <section id="books">
       <h2>{{ L.group_book }}</h2>
       {% for p in groups.book %}
       {{ paper(p) }}
       {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if P.projects %}
+    <section id="projects">
+      <h2>{{ L.projects }}</h2>
+      <ul class="projects">
+        {% for x in P.projects %}
+        <li>{% if x.years is defined %}<span class="years">{{ x.years[lang] }}</span>{% endif %}<span class="text">{{ x.text[lang] | fmt }}</span></li>
+        {% endfor %}
+      </ul>
     </section>
     {% endif %}
 

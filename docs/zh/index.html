@@ -43,7 +43,7 @@
       <nav class="toc" aria-label="研究">
         <a href="#about">简介</a>
         <a href="#research">研究</a>
-<a href="#books">著作</a>      </nav>
+<a href="#software">开源软件</a><a href="#books">著作</a><a href="#projects">科研项目</a>      </nav>
     </div>
     <a class="lang-switch" href="../" hreflang="en">English</a>
   </aside>
@@ -52,7 +52,7 @@
 
     <section id="about">
       <h2>简介</h2>
-      <p>中南财经政法大学金融学院博士研究生，预计 2027 年 6 月毕业。本科就读于合肥工业大学信息安全专业，硕士就读于海南大学金融学专业。</p><p>我的研究关注人工智能如何改变经济决策与市场运行，并用计算方法评估政策。一条线索以人工智能为研究对象：AI 生成候选方案、专家负责验证时，研发对专家的需求如何变化；底价规则是否让定价算法更容易合谋；采用生成式 AI 的企业是否减少后台岗位；考生在 AI 冲击下如何选择专业。另一条线索以计算为方法：用多主体模型研究期货市场和光伏组件行业的价格规制，用蒙特卡洛模拟检验试点政策叠加对双重差分估计的影响。</p>
+      <p>中南财经政法大学金融学院博士研究生，预计 2027 年 6 月毕业。本科就读于合肥工业大学信息安全专业（计算机类），毕业后在江淮汽车国际公司从事海外品牌策划工作四年，硕士就读于海南大学金融学专业。</p><p>我的研究关注人工智能如何改变经济决策与市场运行，并用计算方法评估政策。一条线索以人工智能为研究对象：AI 生成候选方案、专家负责验证时，研发对专家的需求如何变化；底价规则是否让定价算法更容易合谋；采用生成式 AI 的企业是否减少后台岗位；考生在 AI 冲击下如何选择专业。另一条线索以计算为方法：用多主体模型研究期货市场和光伏组件行业的价格规制，用蒙特卡洛模拟检验试点政策叠加对双重差分估计的影响。</p><p>编程是我做研究的基本功。我用 Python 清洗和分析近 500 万条期货公司账户交易记录，搭建多主体模型和强化学习实验，并开发、维护开源工具 <a href="https://github.com/CharlesChengGithub/llmarket">llmarket</a>：大模型主体、强化学习主体和规则主体可以在同一个市场中交易，价格规制可以随时开关。</p>
       <h3 class="label">研究方向</h3>
       <ul class="interests">
 <li>人工智能经济学</li><li>计算经济学（多主体模型、强化学习）</li><li>行为金融与期货市场</li><li>家庭金融与政策评估</li>      </ul>
@@ -60,7 +60,32 @@
 
     <section id="research">
       <h2>研究</h2>
-      <h3 class="label group">返修与在审论文<span class="count">5</span></h3>
+      <h3 class="label group">发表论文<span class="count">2</span></h3>
+      <article class="paper" id="pv-price-floors">
+  <h4 class="paper-title">
+Cost-Based Price Floors, Soft Budgets and Capacity Adjustment in China’s Solar Photovoltaic Industry  </h4>
+  <p class="paper-meta"><span>与张金林合作</span><span class="sep" aria-hidden="true">·</span><span class="status status-published"><em>Sustainability</em>，已录用</span></p>
+<p class="paper-summary">构建光伏组件行业的多主体模型，评估禁止低于成本销售的政策。以企业自身平均总成本为底价，会降低产能利用率和福利、延缓退出；以行业参考成本为底价能稳定价格，但使退出产能减少 75%。</p>  <div class="paper-actions">
+    <details>
+      <summary>摘要（英文）</summary>
+      <div class="abstract"><p>Persistent overcapacity in photovoltaic (PV) manufacturing raises a question for the economic sustainability of renewable-energy supply chains: does protecting producers’ margins help or hinder capacity adjustment? We evaluate cost-based price floors with an agent-based model of China’s PV module industry that features adaptive pricing, market-share-driven investment, credit guarantees and local-government rescues. The model is driven by observed polysilicon prices and reproduces eight of ten moments from public company data within a pre-registered tolerance, although it captures only part of the 2024 price decline. Policy effects are paired comparisons across 200 random seeds. A floor at each firm’s own average total cost lowers utilisation by 5.8 percentage points and welfare by 1.1% over ten years and, in the main specification, slows exit even under hard budgets; its welfare loss grows when products are more substitutable and turns into a gain only when demand is much less price-sensitive, R&amp;D responds strongly to profits or share pressure is very high. An industry-reference floor stabilises prices but cuts capacity exit by 75%; its 1.8% welfare gain falls to 0.5% when surviving firms are not valued as additional variety. An admission standard for new capacity raises utilisation and, while demand plateaus, welfare. Protecting margins is a poor substitute for policies that change the returns to expansion.</p></div>
+    </details>
+  </div>
+</article>
+
+      <article class="paper" id="anchoring-effect">
+  <h4 class="paper-title">
+我国商品期货投资者锚定效应的存在性及其对市场有效性的影响  </h4>
+  <p class="paper-meta"><span>与邝雄、陈霞合作</span><span class="sep" aria-hidden="true">·</span><span class="status status-published"><em>系统科学与数学</em>, 2022, 42(8): 2126–2141</span></p>
+<p class="paper-summary">用期货投资者日度交易数据检验出商品期货投资者的报价锚定效应，并用多主体模拟考察它对市场有效性的影响：套利者的锚定降低价格波动、提升价格发现功能；投机者的锚定虽能稳定价格，却削弱价格发现功能。</p>  <div class="paper-actions">
+    <details>
+      <summary>摘要</summary>
+      <div class="abstract"><p>文章基于中国期货投资者日度交易数据，在排除了个体信息对锚定偏差的混淆影响后，检验出中国期货市场投资者在投资商品期货的过程中，其当期报价会对上一次报价存在显著的锚定效应。在实证检验的基础上，文章进一步构建了期货市场上存在锚定效应的投资者交易决策的数理模型，并运用多主体复杂系统模拟的方法对锚定效应和期货市场有效性之间的关系进行了模拟研究。研究发现，套利者的锚定效应能够有效降低期货市场的价格波动性同时提升期货市场对现货市场的价格发现功能；而投机者的锚定效应虽然能稳定期货市场的价格波动，但是却降低了期货市场的价格发现功能。</p></div>
+    </details>
+<a class="chip" href="https://doi.org/10.12341/jssms22188">DOI</a>  </div>
+</article>
+
+      <h3 class="label group">返修与在审论文<span class="count">4</span></h3>
       <article class="paper" id="ai-validation">
   <h4 class="paper-title">
 When Artificial Intelligence Generates and Experts Validate: Specialist Allocation and the Aggregate Substitutability of Artificial Intelligence in Research  </h4>
@@ -85,18 +110,6 @@ Do Below-Cost Sales Bans Facilitate Algorithmic Collusion? Price Floors, Learnin
   </div>
 </article>
 
-      <article class="paper" id="pv-price-floors">
-  <h4 class="paper-title">
-Cost-Based Price Floors, Soft Budgets and Capacity Adjustment in China’s Solar Photovoltaic Industry  </h4>
-  <p class="paper-meta"><span>与张金林合作</span><span class="sep" aria-hidden="true">·</span><span class="status status-review">返修中，<em>Sustainability</em></span></p>
-<p class="paper-summary">构建光伏组件行业的多主体模型，评估禁止低于成本销售的政策。以企业自身平均总成本为底价，会降低产能利用率和福利、延缓退出；以行业参考成本为底价能稳定价格，但使退出产能减少 75%。</p>  <div class="paper-actions">
-    <details>
-      <summary>摘要（英文）</summary>
-      <div class="abstract"><p>Persistent overcapacity in photovoltaic (PV) manufacturing raises a question for the economic sustainability of renewable-energy supply chains: does protecting producers’ margins help or hinder capacity adjustment? We evaluate cost-based price floors with an agent-based model of China’s PV module industry that features adaptive pricing, market-share-driven investment, credit guarantees and local-government rescues. The model is driven by observed polysilicon prices and reproduces eight of ten moments from public company data within a pre-registered tolerance, although it captures only part of the 2024 price decline. Policy effects are paired comparisons across 200 random seeds. A floor at each firm’s own average total cost lowers utilisation by 5.8 percentage points and welfare by 1.1% over ten years and, in the main specification, slows exit even under hard budgets; its welfare loss grows when products are more substitutable and turns into a gain only when demand is much less price-sensitive, R&amp;D responds strongly to profits or share pressure is very high. An industry-reference floor stabilises prices but cuts capacity exit by 75%; its 1.8% welfare gain falls to 0.5% when surviving firms are not valued as additional variety. An admission standard for new capacity raises utilisation and, while demand plateaus, welfare. Protecting margins is a poor substitute for policies that change the returns to expansion.</p></div>
-    </details>
-  </div>
-</article>
-
       <article class="paper" id="overlapping-pilots">
   <h4 class="paper-title">
 When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations of China’s City Pilot Policies  </h4>
@@ -112,7 +125,7 @@ When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations
       <article class="paper" id="margin-liquidation">
   <h4 class="paper-title">
 Who Gets Liquidated? Margin Requirements and the Reallocation of Liquidation Risk in Futures Markets: An Agent-Based Systems Analysis  </h4>
-  <p class="paper-meta"><span>与张金林合作</span><span class="sep" aria-hidden="true">·</span><span class="status status-review">返修中，<em>Systems</em></span></p>
+  <p class="paper-meta"><span>与张金林合作</span><span class="sep" aria-hidden="true">·</span><span class="status status-review">在审，<em>Systems</em></span></p>
 <p class="paper-summary">保证金不仅影响强制平仓的规模，也决定谁被平仓。以期货公司客户数据为经验基础的多主体模型显示，下调保证金率使新增强平几乎全部落在套利者身上；上调保证金率则把强平转移给受自身杠杆约束的投机者。</p>  <div class="paper-actions">
     <details>
       <summary>摘要（英文）</summary>
@@ -220,6 +233,16 @@ Do Managers Underreact? Subjective Uncertainty and the Revision of Range Earning
 
     </section>
 
+    <section id="software">
+      <h2>开源软件</h2>
+      <article class="paper software">
+        <h4 class="paper-title"><a href="https://github.com/CharlesChengGithub/llmarket">llmarket</a></h4>
+        <p class="paper-meta"><span>开发和维护 · Python · MIT 许可 · v0.1.1，2026 年 10 月</span></p>
+        <p class="paper-summary"><strong>开源的经济学多主体模拟工具，支持大模型主体、强化学习主体和价格规制.</strong> 大模型主体、Q-learning 主体和规则主体可以在同一个市场中竞争。第一个内置场景是算法定价，价格规制可以开关：五种成本口径的底价、价格上限，执行方式和信息披露也可以分别设置。Q-learning 引擎逐个 session 复现 Calvano 等（2020）的基准结果；大模型实验带回答缓存、固定种子、带预算上限的费用台账和离线模拟客户端。</p>
+        <div class="paper-actions"><a class="chip" href="https://github.com/CharlesChengGithub/llmarket">GitHub</a></div>
+      </article>
+    </section>
+
     <section id="books">
       <h2>著作</h2>
       <article class="paper" id="abm-book">
@@ -234,6 +257,15 @@ Do Managers Underreact? Subjective Uncertainty and the Revision of Range Earning
   <p class="paper-meta"><span>与张金林合作</span><span class="sep" aria-hidden="true">·</span><span class="status status-book">书稿</span></p>
 </article>
 
+    </section>
+
+    <section id="projects">
+      <h2>科研项目</h2>
+      <ul class="projects">
+        <li><span class="years">2023 至今</span><span class="text">国家社会科学基金重大项目“推进共同富裕的金融理论逻辑与有效机制研究”（22&amp;ZD115），参与。相关成果：著作《资本市场与共同富裕：财富创造、分配与治理》</span></li>
+        <li><span class="years">2021—2022</span><span class="text">中国期货业协会联合研究计划二类课题“中国期货市场投资者行为因素及对期货价格发现功能的影响”，课题组成员（排名第二），承担数据收集、分析和研究报告撰写</span></li>
+        <li><span class="years">2021</span><span class="text">课题“海南自贸港离岸金融的风险防控与监管”，参与，负责监管沙盒制度的国外经验汇总与本地化框架设计</span></li>
+      </ul>
     </section>
 
     <footer class="footer">

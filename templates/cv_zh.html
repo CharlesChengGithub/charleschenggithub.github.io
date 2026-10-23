@@ -37,6 +37,13 @@
 </section>
 {% endif %}
 
+{% if P.cv_summary_zh is defined %}
+<section>
+  <h2>个人简介</h2>
+  <p>{{ P.cv_summary_zh | replace("{n_pub}", (groups.published | length if "published" in groups else 0) | string) | replace("{n_rev}", (groups.review | length if "review" in groups else 0) | string) | fmt }}</p>
+</section>
+{% endif %}
+
 <section>
   <h2>教育背景</h2>
   {% for e in P.education %}
@@ -50,6 +57,18 @@
   {% endfor %}
 </section>
 
+{% if P.work %}
+<section>
+  <h2>工作经历</h2>
+  {% for w in P.work %}
+  <div class="row">
+    <div><strong>{{ w.org.zh | fmt }}</strong>　{{ w.role.zh | fmt }}</div>
+    <div class="date">{{ w.years.zh | fmt }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
 <section>
   <h2>研究方向</h2>
   <p>{{ P.interests.zh | join("；") }}</p>
@@ -58,12 +77,18 @@
 <section>
   <h2>科研成果</h2>
   {% set n = namespace(i=1) %}
-  {% for g, head in [("review", "返修与在审论文"), ("working", "工作论文"), ("book", "著作")] if g in groups %}
+  {% for g, head in [("published", "发表论文"), ("review", "返修与在审论文"), ("working", "工作论文"), ("book", "著作")] if g in groups %}
   <h3>{{ head }}</h3>
   <ol class="pubs" start="{{ n.i }}">
     {% for p in groups[g] %}{{ pub_item(p) }}{% set n.i = n.i + 1 %}{% endfor %}
   </ol>
   {% endfor %}
+  {% if P.software %}
+  <h3>开源软件</h3>
+  <ul class="plain">
+    {% for sw in P.software %}<li><strong>{{ sw.name }}</strong>：{{ sw.tagline.zh }}。{{ sw.meta.zh | replace(" · ", "，") }}。{{ sw.url | replace("https://", "") }}</li>{% endfor %}
+  </ul>
+  {% endif %}
   {% if "wip" in groups %}
   <h3>在研项目</h3>
   <ul class="plain">
@@ -75,9 +100,12 @@
 {% if P.projects %}
 <section>
   <h2>科研项目</h2>
-  <ul class="plain">
-    {% for x in P.projects %}<li>{{ x.zh | fmt }}</li>{% endfor %}
-  </ul>
+  {% for x in P.projects %}
+  <div class="row">
+    <div>{{ x.text.zh | fmt }}</div>
+    <div class="date">{% if x.years is defined %}{{ x.years.zh }}{% endif %}</div>
+  </div>
+  {% endfor %}
 </section>
 {% endif %}
 
@@ -87,6 +115,13 @@
   <ul class="plain">
     {% for x in P.teaching %}<li>{{ x.zh | fmt }}</li>{% endfor %}
   </ul>
+</section>
+{% endif %}
+
+{% if P.teaching_interests %}
+<section>
+  <h2>可承担课程</h2>
+  <p>{{ P.teaching_interests.zh }}</p>
 </section>
 {% endif %}
 
@@ -112,7 +147,7 @@
 </section>
 {% endif %}
 
-<p class="updated">更新于 {{ updated }}</p>
+{% if not full %}<p class="updated">更新于 {{ updated }}</p>{% endif %}
 
 </body>
 </html>

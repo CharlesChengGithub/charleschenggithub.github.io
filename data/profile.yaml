@@ -43,13 +43,20 @@ interests:
 
 bio:
   en: |
-    I am a Ph.D. candidate at the School of Finance, Zhongnan University of Economics and Law, and expect to graduate in June 2027. I studied information security at Hefei University of Technology and finance at Hainan University before starting my Ph.D.
+    I am a Ph.D. candidate at the School of Finance, Zhongnan University of Economics and Law, and expect to graduate in June 2027. I studied information security, a computer science major, at Hefei University of Technology, worked for four years in overseas brand planning at JAC Motors, and then studied finance at Hainan University.
 
     My research asks how artificial intelligence changes economic decisions and markets, and uses computation to evaluate policy. In one line of work, AI is the object of study: how AI that generates research candidates changes the demand for the specialists who validate them, whether pricing algorithms collude more under price floors, whether firms that adopt generative AI employ fewer back-office staff, and how students choose college majors once AI is in view. In a second line, computation is the method: agent-based models of futures markets and of China's solar photovoltaic industry, and Monte Carlo evidence on overlapping pilot policies.
+
+    Programming is central to how I work. I clean and analyze nearly five million futures brokerage records in Python, build agent-based models and reinforcement-learning experiments, and maintain [llmarket](https://github.com/CharlesChengGithub/llmarket), an open-source toolkit in which LLM agents, reinforcement learners and rule-based agents trade in the same market under price regulation that can be switched on and off.
   zh: |
-    中南财经政法大学金融学院博士研究生，预计 2027 年 6 月毕业。本科就读于合肥工业大学信息安全专业，硕士就读于海南大学金融学专业。
+    中南财经政法大学金融学院博士研究生，预计 2027 年 6 月毕业。本科就读于合肥工业大学信息安全专业（计算机类），毕业后在江淮汽车国际公司从事海外品牌策划工作四年，硕士就读于海南大学金融学专业。
 
     我的研究关注人工智能如何改变经济决策与市场运行，并用计算方法评估政策。一条线索以人工智能为研究对象：AI 生成候选方案、专家负责验证时，研发对专家的需求如何变化；底价规则是否让定价算法更容易合谋；采用生成式 AI 的企业是否减少后台岗位；考生在 AI 冲击下如何选择专业。另一条线索以计算为方法：用多主体模型研究期货市场和光伏组件行业的价格规制，用蒙特卡洛模拟检验试点政策叠加对双重差分估计的影响。
+
+    编程是我做研究的基本功。我用 Python 清洗和分析近 500 万条期货公司账户交易记录，搭建多主体模型和强化学习实验，并开发、维护开源工具 [llmarket](https://github.com/CharlesChengGithub/llmarket)：大模型主体、强化学习主体和规则主体可以在同一个市场中交易，价格规制可以随时开关。
+
+# 中文简历顶部的个人简介。{n_pub}、{n_rev} 构建时换成已发表/录用、返修/在审论文的篇数
+cv_summary_zh: 计算机类本科（信息安全），在企业工作 4 年后读金融学硕士、博士，研究人工智能经济学和计算经济学。已发表和录用论文 {n_pub} 篇，返修和在审论文 {n_rev} 篇；参与国家社会科学基金重大项目 1 项。熟练使用 Python 处理大规模数据，曾清洗和分析近 500 万条期货公司账户交易记录；开发并开源经济学多主体模拟工具 llmarket。可承担金融类课程，以及 Python 程序设计、数据分析和人工智能通识类课程。
 
 # 教育经历
 education:
@@ -78,23 +85,62 @@ education:
       zh: 合肥工业大学
     years: {en: "2011–2015", zh: "2011—2015"}
 
-# 科研项目（只写在简历里）
+# 工作经历
+work:
+  - org: {en: JAC Motors International Co., zh: 江淮汽车国际公司}
+    role: {en: Overseas brand planning, zh: 海外品牌策划}
+    years: {en: "2015–2019", zh: "2015—2019"}
+
+# 科研项目（网站和简历都显示）。years 可省略
 projects:
-  - en: "Major Program of the National Social Science Fund of China, “Financial Theory and Effective Mechanisms for Advancing Common Prosperity” (22&ZD115), participant; related output: the book *Capital Markets and Common Prosperity*"
-    zh: 国家社会科学基金重大项目“推进共同富裕的金融理论逻辑与有效机制研究”（22&ZD115），参与；相关成果：著作《资本市场与共同富裕：财富创造、分配与治理》
+  - years: {en: "Since 2023", zh: "2023 至今"}
+    text:
+      en: "Major Program of the National Social Science Fund of China, “Financial Theory and Effective Mechanisms for Advancing Common Prosperity” (22&ZD115); participant. Related output: the book *Capital Markets and Common Prosperity*"
+      zh: 国家社会科学基金重大项目“推进共同富裕的金融理论逻辑与有效机制研究”（22&ZD115），参与。相关成果：著作《资本市场与共同富裕：财富创造、分配与治理》
+  - years: {en: "2021–2022", zh: "2021—2022"}
+    text:
+      en: "China Futures Association Joint Research Program (Class II project), “Investor Behavioral Factors in China’s Futures Market and Their Effects on Price Discovery”; team member, ranked second. Responsible for data collection, analysis and the research report"
+      zh: 中国期货业协会联合研究计划二类课题“中国期货市场投资者行为因素及对期货价格发现功能的影响”，课题组成员（排名第二），承担数据收集、分析和研究报告撰写
+  - years: {en: "2021", zh: "2021"}
+    text:
+      en: "“Risk Prevention and Regulation of Offshore Finance in the Hainan Free Trade Port”; participant. Reviewed international experience with regulatory sandboxes and drafted a framework adapted to Hainan"
+      zh: 课题“海南自贸港离岸金融的风险防控与监管”，参与，负责监管沙盒制度的国外经验汇总与本地化框架设计
+
+# 开源软件（网站和简历都显示）
+software:
+  - name: llmarket
+    url: https://github.com/CharlesChengGithub/llmarket
+    meta:
+      en: "Developer and maintainer · Python · MIT License · v0.1.1, October 2026"
+      zh: 开发和维护 · Python · MIT 许可 · v0.1.1，2026 年 10 月
+    tagline:
+      en: An open-source agent-based simulation toolkit for economics, with LLM agents, reinforcement learners and price regulation
+      zh: 开源的经济学多主体模拟工具，支持大模型主体、强化学习主体和价格规制
+    summary:
+      en: LLM agents, Q-learning agents and rule-based agents compete in the same market. The first built-in scenario is algorithmic pricing under switchable regulation, with five cost-based price floors, price caps, and separate enforcement and disclosure settings. The Q-learning engine reproduces the Calvano et al. (2020) baseline session by session; LLM runs come with response caching, deterministic seeds, a cost ledger with a budget guard and an offline mock client.
+      zh: 大模型主体、Q-learning 主体和规则主体可以在同一个市场中竞争。第一个内置场景是算法定价，价格规制可以开关：五种成本口径的底价、价格上限，执行方式和信息披露也可以分别设置。Q-learning 引擎逐个 session 复现 Calvano 等（2020）的基准结果；大模型实验带回答缓存、固定种子、带预算上限的费用台账和离线模拟客户端。
 
 # 教学经历（只写在简历里）。有了再加，格式：- {en: ..., zh: ...}
 teaching: []
 
+# 可承担课程（只写在简历里）
+teaching_interests:
+  en: Finance; Investments; FinTech; Behavioral Finance; Econometrics; Python Programming; Financial Data Analysis and Visualization; introductory computing and AI literacy courses
+  zh: 金融学、证券投资学、金融科技、行为金融学、计量经济学、Python 程序设计、金融数据分析与可视化；也可承担计算机基础、人工智能通识类课程
+
 skills:
   - label: {en: Programming, zh: 编程}
     text:
-      en: Python (agent-based modeling, reinforcement learning, simulation), Stata, LaTeX
-      zh: Python（多主体建模、强化学习、模拟），Stata，LaTeX
-  - label: {en: Data, zh: 数据}
+      en: Python (pandas, NumPy; agent-based modeling, reinforcement learning, LLM agent experiments), Java, Stata, NetLogo; Jupyter Notebook, Git and GitHub, LaTeX
+      zh: Python（pandas、NumPy；多主体建模、强化学习、大模型主体实验），Java，Stata，NetLogo；Jupyter Notebook、Git 与 GitHub、LaTeX
+  - label: {en: Data, zh: 数据处理}
     text:
-      en: China Household Finance Survey (CHFS), futures brokerage account data, listed-firm annual reports and CSMAR, gaokao admission data
-      zh: 中国家庭金融调查（CHFS）、期货公司账户数据、上市公司年报与 CSMAR、高考录取数据
+      en: Cleaned and analyzed nearly five million futures brokerage records (trades, closed positions and daily holdings) in Python; China Household Finance Survey (CHFS), CSMAR and annual-report text, gaokao admission data
+      zh: 用 Python 清洗和分析期货公司近 500 万条账户记录（成交、平仓、每日持仓）；中国家庭金融调查（CHFS）、CSMAR 与上市公司年报文本、高考录取数据
+  - label: {en: Methods, zh: 研究方法}
+    text:
+      en: Agent-based modeling, Q-learning, LLM agents, DSGE, Monte Carlo simulation, difference-in-differences and panel econometrics
+      zh: 多主体建模、Q-learning、大模型主体、DSGE、蒙特卡洛模拟、双重差分与面板计量
   - label: {en: Languages, zh: 语言}
     text:
       en: Chinese (native), English (CET-6, 538)
@@ -104,3 +150,5 @@ skills:
 people:
   cheng: {en: Chao Cheng, zh: 程超, self: true}
   zhang: {en: Jinlin Zhang, zh: 张金林}
+  kuang: {en: Xiong Kuang, zh: 邝雄}
+  chen: {en: Xia Chen, zh: 陈霞}

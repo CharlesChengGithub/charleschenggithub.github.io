@@ -37,10 +37,31 @@
   {% endfor %}
 </section>
 
+{% if P.work %}
+<section>
+  <h2>Work Experience</h2>
+  {% for w in P.work %}
+  <div class="row">
+    <div><strong>{{ w.role.en | fmt }}</strong>, {{ w.org.en | fmt }}</div>
+    <div class="date">{{ w.years.en | fmt }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+
 <section>
   <h2>Research Interests</h2>
   <p>{{ P.interests.en | join("; ") }}</p>
 </section>
+
+{% if "published" in groups %}
+<section>
+  <h2>Publications</h2>
+  <ol class="pubs">
+    {% for p in groups.published %}{{ pub_item(p) }}{% endfor %}
+  </ol>
+</section>
+{% endif %}
 
 {% if "review" in groups %}
 <section>
@@ -78,12 +99,24 @@
 </section>
 {% endif %}
 
+{% if P.software %}
+<section>
+  <h2>Software</h2>
+  <ul class="plain">
+    {% for sw in P.software %}<li><strong>{{ sw.name }}</strong>: {{ sw.tagline.en }}. {{ sw.meta.en | replace(" · ", ", ") }}. <a href="{{ sw.url }}">{{ sw.url | replace("https://", "") }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 {% if P.projects %}
 <section>
   <h2>Research Projects</h2>
-  <ul class="plain">
-    {% for x in P.projects %}<li>{{ x.en | fmt }}</li>{% endfor %}
-  </ul>
+  {% for x in P.projects %}
+  <div class="row">
+    <div>{{ x.text.en | fmt }}</div>
+    <div class="date">{% if x.years is defined %}{{ x.years.en }}{% endif %}</div>
+  </div>
+  {% endfor %}
 </section>
 {% endif %}
 
@@ -93,6 +126,13 @@
   <ul class="plain">
     {% for x in P.teaching %}<li>{{ x.en | fmt }}</li>{% endfor %}
   </ul>
+</section>
+{% endif %}
+
+{% if P.teaching_interests %}
+<section>
+  <h2>Teaching Interests</h2>
+  <p>{{ P.teaching_interests.en }}</p>
 </section>
 {% endif %}
 
@@ -118,7 +158,7 @@
 </section>
 {% endif %}
 
-<p class="updated">Last updated: {{ updated }}</p>
+{% if not full %}<p class="updated">Last updated: {{ updated }}</p>{% endif %}
 
 </body>
 </html>
