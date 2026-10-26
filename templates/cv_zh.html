@@ -173,7 +173,7 @@
       　GitHub：<span>{{ P.github | replace("https://github.com/", "") }}</span>
     </p>
   </div>
-  {% if full %}
+  {% if full or photo %}
   <div class="photo-box">
     {% if photo %}<img src="{{ photo }}" alt="照片">{% else %}<span class="todo">[待填：照片]</span>{% endif %}
   </div>
