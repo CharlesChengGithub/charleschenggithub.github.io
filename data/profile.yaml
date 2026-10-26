@@ -37,7 +37,7 @@ interests:
     - Household finance and policy evaluation
   zh:
     - 人工智能经济学
-    - 计算经济学（多主体模型、强化学习）
+    - 计算经济学（多主体建模、强化学习、大语言模型主体）
     - 行为金融与期货市场
     - 家庭金融与政策评估
 
@@ -48,15 +48,18 @@ bio:
     My research asks how artificial intelligence changes economic decisions and markets, and uses computation to evaluate policy. In one line of work, AI is the object of study: how AI that generates research candidates changes the demand for the specialists who validate them, whether pricing algorithms collude more under price floors, whether firms that adopt generative AI employ fewer back-office staff, and how students choose college majors once AI is in view. In a second line, computation is the method: agent-based models of futures markets and of China's solar photovoltaic industry, and Monte Carlo evidence on overlapping pilot policies.
 
     Programming is central to how I work. I clean and analyze nearly five million futures brokerage records in Python, build agent-based models and reinforcement-learning experiments, and maintain [llmarket](https://github.com/CharlesChengGithub/llmarket), an open-source toolkit in which LLM agents, reinforcement learners and rule-based agents trade in the same market under price regulation that can be switched on and off.
+  # 中文简介用第三人称、正式书面语（国内求职主要看中文）。{n_pub}、{n_rev} 构建时自动替换
   zh: |
-    中南财经政法大学金融学院博士研究生，预计 2027 年 6 月毕业。本科就读于合肥工业大学信息安全专业（计算机类），毕业后在江淮汽车国际公司从事海外品牌策划工作四年，硕士就读于海南大学金融学专业。
+    程超，中南财经政法大学金融学院金融学专业博士研究生，导师为张金林教授，预计于 2027 年 6 月毕业。本科毕业于合肥工业大学信息安全专业（计算机类），其后在江淮汽车国际公司从事海外品牌策划工作四年，2020 年起先后在海南大学、中南财经政法大学攻读金融学硕士和博士学位。计算机专业训练、企业实践经历与金融学研究训练相结合，构成其开展交叉研究的基础。
 
-    我的研究关注人工智能如何改变经济决策与市场运行，并用计算方法评估政策。一条线索以人工智能为研究对象：AI 生成候选方案、专家负责验证时，研发对专家的需求如何变化；底价规则是否让定价算法更容易合谋；采用生成式 AI 的企业是否减少后台岗位；考生在 AI 冲击下如何选择专业。另一条线索以计算为方法：用多主体模型研究期货市场和光伏组件行业的价格规制，用蒙特卡洛模拟检验试点政策叠加对双重差分估计的影响。
+    主要研究方向为人工智能经济学与计算经济学。研究沿两条主线展开：一是以人工智能为研究对象，考察人工智能承担候选方案生成后研发活动对专家验证的需求变化、底价规制下定价算法与大语言模型定价主体的合谋倾向、生成式人工智能应用对企业后台岗位的影响，以及人工智能预期对高考专业选择的影响；二是以计算方法为研究工具，结合期货公司账户数据构建期货市场多主体模型，研究保证金制度、处置效应与跨品种风险传导，构建光伏组件行业多主体模型评估价格规制，并以蒙特卡洛模拟检验试点政策叠加对双重差分估计的影响。
 
-    编程是我做研究的基本功。我用 Python 清洗和分析近 500 万条期货公司账户交易记录，搭建多主体模型和强化学习实验，并开发、维护开源工具 [llmarket](https://github.com/CharlesChengGithub/llmarket)：大模型主体、强化学习主体和规则主体可以在同一个市场中交易，价格规制可以随时开关。
+    已在《系统科学与数学》、*Sustainability* 等期刊发表或录用论文 {n_pub} 篇；另有 {n_rev} 篇以第一作者或独立作者身份撰写的英文论文处于返修或在审阶段，投稿期刊包括 *Journal of Economic Behavior & Organization*、*Computational Economics*、*Systems* 和 *Sustainability*。独立撰写经济学多主体建模方法教材书稿 1 部。参与国家社会科学基金重大项目 1 项，以课题组成员身份（排名第二）参与中国期货业协会联合研究计划课题 1 项。
+
+    具备扎实的编程与数据处理能力：熟练运用 Python 处理大规模数据，曾清洗和分析近 500 万条期货公司账户交易记录；能够搭建多主体模型、强化学习实验和大语言模型主体实验；开发并维护开源经济学多主体模拟工具 [llmarket](https://github.com/CharlesChengGithub/llmarket)，支持大语言模型主体、强化学习主体与规则主体在同一市场中交互，并可灵活设置价格规制。
 
 # 中文简历顶部的个人简介。{n_pub}、{n_rev} 构建时换成已发表/录用、返修/在审论文的篇数
-cv_summary_zh: 计算机类本科（信息安全），在企业工作 4 年后读金融学硕士、博士，研究人工智能经济学和计算经济学。已发表和录用论文 {n_pub} 篇，返修和在审论文 {n_rev} 篇；参与国家社会科学基金重大项目 1 项。熟练使用 Python 处理大规模数据，曾清洗和分析近 500 万条期货公司账户交易记录；开发并开源经济学多主体模拟工具 llmarket。可承担金融类课程，以及 Python 程序设计、数据分析和人工智能通识类课程。
+cv_summary_zh: 金融学专业博士研究生（预计 2027 年 6 月毕业），研究方向为人工智能经济学与计算经济学。本科为计算机类专业（信息安全），具有 4 年企业工作经历，兼具编程能力与金融学研究训练。已发表和录用论文 {n_pub} 篇；另有返修和在审论文 {n_rev} 篇，均为第一作者或独立作者，投稿期刊包括 *Journal of Economic Behavior & Organization*、*Computational Economics* 等。参与国家社会科学基金重大项目 1 项。熟练运用 Python 处理大规模数据，曾清洗和分析近 500 万条期货公司账户交易记录；开发并开源经济学多主体模拟工具 llmarket。可承担金融学类专业课程，以及 Python 程序设计、数据分析与人工智能通识类课程。
 
 # 教育经历
 education:
@@ -69,7 +72,7 @@ education:
     years: {en: "2023–2027", zh: "2023—2027（预计）"}
     note:
       en: "Advisor: Jinlin Zhang"
-      zh: 导师：张金林
+      zh: 导师：张金林教授
   - degree:
       en: M.Econ. in Finance
       zh: 硕士研究生，金融学
@@ -96,29 +99,29 @@ projects:
   - years: {en: "Since 2023", zh: "2023 至今"}
     text:
       en: "Major Program of the National Social Science Fund of China, “Financial Theory and Effective Mechanisms for Advancing Common Prosperity” (22&ZD115); participant. Related output: the book *Capital Markets and Common Prosperity*"
-      zh: 国家社会科学基金重大项目“推进共同富裕的金融理论逻辑与有效机制研究”（22&ZD115），参与。相关成果：著作《资本市场与共同富裕：财富创造、分配与治理》
+      zh: 国家社会科学基金重大项目“推进共同富裕的金融理论逻辑与有效机制研究”（22&ZD115），项目参与人。相关成果：著作《资本市场与共同富裕：财富创造、分配与治理》
   - years: {en: "2021–2022", zh: "2021—2022"}
     text:
       en: "China Futures Association Joint Research Program (Class II project), “Investor Behavioral Factors in China’s Futures Market and Their Effects on Price Discovery”; team member, ranked second. Responsible for data collection, analysis and the research report"
-      zh: 中国期货业协会联合研究计划二类课题“中国期货市场投资者行为因素及对期货价格发现功能的影响”，课题组成员（排名第二），承担数据收集、分析和研究报告撰写
+      zh: 中国期货业协会联合研究计划二类课题“中国期货市场投资者行为因素及对期货价格发现功能的影响”，课题组成员（排名第二），承担数据收集与实证分析，并参与研究报告撰写
   - years: {en: "2021", zh: "2021"}
     text:
       en: "“Risk Prevention and Regulation of Offshore Finance in the Hainan Free Trade Port”; participant. Reviewed international experience with regulatory sandboxes and drafted a framework adapted to Hainan"
-      zh: 课题“海南自贸港离岸金融的风险防控与监管”，参与，负责监管沙盒制度的国外经验汇总与本地化框架设计
+      zh: 课题“海南自贸港离岸金融的风险防控与监管”，课题参与人，负责梳理监管沙盒制度的国际经验，并设计适用于海南自贸港的监管框架
 
 # 开源软件（网站和简历都显示）
 software:
   - name: llmarket
     url: https://github.com/CharlesChengGithub/llmarket
     meta:
-      en: "Developer and maintainer · Python · MIT License · v0.1.1, October 2026"
-      zh: 开发和维护 · Python · MIT 许可 · v0.1.1，2026 年 10 月
+      en: "Developer and maintainer · Python · MIT License · v0.1.2, October 2026"
+      zh: 开发者与维护者 · Python · MIT 许可证 · v0.1.2，2026 年 10 月
     tagline:
       en: An open-source agent-based simulation toolkit for economics, with LLM agents, reinforcement learners and price regulation
-      zh: 开源的经济学多主体模拟工具，支持大模型主体、强化学习主体和价格规制
+      zh: 开源经济学多主体模拟工具，支持大语言模型主体、强化学习主体与价格规制
     summary:
       en: LLM agents, Q-learning agents and rule-based agents compete in the same market. The first built-in scenario is algorithmic pricing under switchable regulation, with five cost-based price floors, price caps, and separate enforcement and disclosure settings. The Q-learning engine reproduces the Calvano et al. (2020) baseline session by session; LLM runs come with response caching, deterministic seeds, a cost ledger with a budget guard and an offline mock client.
-      zh: 大模型主体、Q-learning 主体和规则主体可以在同一个市场中竞争。第一个内置场景是算法定价，价格规制可以开关：五种成本口径的底价、价格上限，执行方式和信息披露也可以分别设置。Q-learning 引擎逐个 session 复现 Calvano 等（2020）的基准结果；大模型实验带回答缓存、固定种子、带预算上限的费用台账和离线模拟客户端。
+      zh: 大语言模型主体、Q-learning 主体与规则主体可在同一市场中竞争。首个内置场景为可开关价格规制下的算法定价，涵盖五种成本口径的底价与价格上限，执行方式和信息披露可分别设置。Q-learning 引擎逐局复现 Calvano 等（2020）的基准结果；大语言模型实验支持回答缓存、固定随机种子、带预算上限的费用记录和离线模拟客户端，保证结果可复现、成本可控。
 
 # 教学经历（只写在简历里）。有了再加，格式：- {en: ..., zh: ...}
 teaching: []
@@ -126,7 +129,7 @@ teaching: []
 # 可承担课程（只写在简历里）
 teaching_interests:
   en: Finance; Investments; FinTech; Behavioral Finance; Econometrics; Python Programming; Financial Data Analysis and Visualization; introductory computing and AI literacy courses
-  zh: 金融学、证券投资学、金融科技、行为金融学、计量经济学、Python 程序设计、金融数据分析与可视化；也可承担计算机基础、人工智能通识类课程
+  zh: 金融学、证券投资学、金融科技、行为金融学、计量经济学、Python 程序设计、金融数据分析与可视化；亦可承担计算机基础与人工智能通识类课程
 
 skills:
   - label: {en: Programming, zh: 编程}
@@ -136,7 +139,7 @@ skills:
   - label: {en: Data, zh: 数据处理}
     text:
       en: Cleaned and analyzed nearly five million futures brokerage records (trades, closed positions and daily holdings) in Python; China Household Finance Survey (CHFS), CSMAR and annual-report text, gaokao admission data
-      zh: 用 Python 清洗和分析期货公司近 500 万条账户记录（成交、平仓、每日持仓）；中国家庭金融调查（CHFS）、CSMAR 与上市公司年报文本、高考录取数据
+      zh: 熟练运用 Python 清洗和分析期货公司近 500 万条账户记录（成交、平仓与每日持仓）；熟悉中国家庭金融调查（CHFS）、CSMAR、上市公司年报文本及高考录取数据
   - label: {en: Methods, zh: 研究方法}
     text:
       en: Agent-based modeling, Q-learning, LLM agents, DSGE, Monte Carlo simulation, difference-in-differences and panel econometrics

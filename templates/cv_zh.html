@@ -1,6 +1,158 @@
+{#- Sections are macros so that job-specific versions (V, from cv_private/private.yaml) can reorder them
+    and override the summary and teaching lines. Public and generic CVs use DEFAULT_ORDER. -#}
+{% set DEFAULT_ORDER = ["basic", "summary", "education", "work", "interests", "research", "projects", "teaching", "teaching_interests", "skills", "references"] %}
+{% set order = V.order if V else DEFAULT_ORDER %}
+{% set summary_text = V.summary_zh if V and V.summary_zh is defined else P.cv_summary_zh %}
+{% set teaching_text = V.teaching_zh if V and V.teaching_zh is defined else (P.teaching_interests.zh if P.teaching_interests else "") %}
+
 {% macro pub_item(p) %}
 <li>{{ authors(p, "zh") }}. {% if p.group == "book" %}<span class="book-title">{{ title_of(p, "zh") }}</span>{% else %}{{ title_of(p, "zh") }}{% endif %}. <span class="status">{{ status(p, "zh") }}</span>.</li>
 {% endmacro %}
+
+{% macro sec_basic() %}
+{% if full and X.get("basic_zh") %}
+<section>
+  <h2>基本信息</h2>
+  <dl class="kv basic">
+    {% for b in X.basic_zh %}<dt>{{ b.label }}</dt><dd>{{ b.value | fmt }}</dd>{% endfor %}
+  </dl>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro sec_summary() %}
+{% if summary_text %}
+<section>
+  <h2>个人简介</h2>
+  <p>{{ summary_text | replace("{n_pub}", (groups.published | length if "published" in groups else 0) | string) | replace("{n_rev}", (groups.review | length if "review" in groups else 0) | string) | fmt }}</p>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro sec_education() %}
+<section>
+  <h2>教育背景</h2>
+  {% for e in P.education %}
+  <div class="row">
+    <div>
+      <strong>{{ e.school.zh | fmt }}</strong>　{{ e.degree.zh | fmt }}
+      {% if e.note is defined %}<br><span class="note">{{ e.note.zh | fmt }}</span>{% endif %}
+    </div>
+    <div class="date">{{ e.years.zh | fmt }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endmacro %}
+
+{% macro sec_work() %}
+{% if P.work %}
+<section>
+  <h2>工作经历</h2>
+  {% for w in P.work %}
+  <div class="row">
+    <div><strong>{{ w.org.zh | fmt }}</strong>　{{ w.role.zh | fmt }}</div>
+    <div class="date">{{ w.years.zh | fmt }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro sec_interests() %}
+<section>
+  <h2>研究方向</h2>
+  <p>{{ P.interests.zh | join("；") }}</p>
+</section>
+{% endmacro %}
+
+{% macro sec_research() %}
+<section>
+  <h2>科研成果</h2>
+  {% set n = namespace(i=1) %}
+  {% for g, head in [("published", "发表论文"), ("review", "返修与在审论文"), ("working", "工作论文"), ("book", "著作")] if g in groups %}
+  <h3>{{ head }}</h3>
+  <ol class="pubs" start="{{ n.i }}">
+    {% for p in groups[g] %}{{ pub_item(p) }}{% set n.i = n.i + 1 %}{% endfor %}
+  </ol>
+  {% endfor %}
+  {% if P.software %}
+  <h3>开源软件</h3>
+  <ul class="plain">
+    {% for sw in P.software %}<li><strong>{{ sw.name }}</strong>：{{ sw.tagline.zh }}。{{ sw.meta.zh | replace(" · ", "，") }}。{{ sw.url | replace("https://", "") }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+  {% if "wip" in groups %}
+  <h3>在研项目</h3>
+  <ul class="plain">
+    {% for p in groups.wip %}<li>{{ p.title_zh or p.title_en }}</li>{% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endmacro %}
+
+{% macro sec_projects() %}
+{% if P.projects %}
+<section>
+  <h2>科研项目</h2>
+  {% for x in P.projects %}
+  <div class="row">
+    <div>{{ x.text.zh | fmt }}</div>
+    <div class="date">{% if x.years is defined %}{{ x.years.zh }}{% endif %}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro sec_teaching() %}
+{% if P.teaching %}
+<section>
+  <h2>教学经历</h2>
+  <ul class="plain">
+    {% for x in P.teaching %}<li>{{ x.zh | fmt }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro sec_teaching_interests() %}
+{% if teaching_text %}
+<section>
+  <h2>可承担课程</h2>
+  <p>{{ teaching_text }}</p>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% macro sec_skills() %}
+<section>
+  <h2>专业技能</h2>
+  <dl class="kv">
+    {% for s in P.skills %}<dt>{{ s.label.zh }}</dt><dd>{{ s.text.zh | fmt }}</dd>{% endfor %}
+  </dl>
+</section>
+{% endmacro %}
+
+{% macro sec_references() %}
+{% if full and X.get("references") %}
+<section>
+  <h2>推荐人</h2>
+  <div class="refs">
+    {% for r in X.references %}
+    <div>
+      <p><strong>{{ r.name.zh | fmt }}</strong>{% if r.role.zh %}（{{ r.role.zh }}）{% endif %}</p>
+      {% if r.affiliation.zh %}<p>{{ r.affiliation.zh }}</p>{% endif %}
+      {% if r.email %}<p>{{ r.email }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endmacro %}
+
+{% set SECTIONS = {"basic": sec_basic, "summary": sec_summary, "education": sec_education, "work": sec_work,
+                   "interests": sec_interests, "research": sec_research, "projects": sec_projects, "teaching": sec_teaching,
+                   "teaching_interests": sec_teaching_interests, "skills": sec_skills, "references": sec_references} %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -28,124 +180,7 @@
   {% endif %}
 </header>
 
-{% if full and X.get("basic_zh") %}
-<section>
-  <h2>基本信息</h2>
-  <dl class="kv basic">
-    {% for b in X.basic_zh %}<dt>{{ b.label }}</dt><dd>{{ b.value | fmt }}</dd>{% endfor %}
-  </dl>
-</section>
-{% endif %}
-
-{% if P.cv_summary_zh is defined %}
-<section>
-  <h2>个人简介</h2>
-  <p>{{ P.cv_summary_zh | replace("{n_pub}", (groups.published | length if "published" in groups else 0) | string) | replace("{n_rev}", (groups.review | length if "review" in groups else 0) | string) | fmt }}</p>
-</section>
-{% endif %}
-
-<section>
-  <h2>教育背景</h2>
-  {% for e in P.education %}
-  <div class="row">
-    <div>
-      <strong>{{ e.school.zh | fmt }}</strong>　{{ e.degree.zh | fmt }}
-      {% if e.note is defined %}<br><span class="note">{{ e.note.zh | fmt }}</span>{% endif %}
-    </div>
-    <div class="date">{{ e.years.zh | fmt }}</div>
-  </div>
-  {% endfor %}
-</section>
-
-{% if P.work %}
-<section>
-  <h2>工作经历</h2>
-  {% for w in P.work %}
-  <div class="row">
-    <div><strong>{{ w.org.zh | fmt }}</strong>　{{ w.role.zh | fmt }}</div>
-    <div class="date">{{ w.years.zh | fmt }}</div>
-  </div>
-  {% endfor %}
-</section>
-{% endif %}
-
-<section>
-  <h2>研究方向</h2>
-  <p>{{ P.interests.zh | join("；") }}</p>
-</section>
-
-<section>
-  <h2>科研成果</h2>
-  {% set n = namespace(i=1) %}
-  {% for g, head in [("published", "发表论文"), ("review", "返修与在审论文"), ("working", "工作论文"), ("book", "著作")] if g in groups %}
-  <h3>{{ head }}</h3>
-  <ol class="pubs" start="{{ n.i }}">
-    {% for p in groups[g] %}{{ pub_item(p) }}{% set n.i = n.i + 1 %}{% endfor %}
-  </ol>
-  {% endfor %}
-  {% if P.software %}
-  <h3>开源软件</h3>
-  <ul class="plain">
-    {% for sw in P.software %}<li><strong>{{ sw.name }}</strong>：{{ sw.tagline.zh }}。{{ sw.meta.zh | replace(" · ", "，") }}。{{ sw.url | replace("https://", "") }}</li>{% endfor %}
-  </ul>
-  {% endif %}
-  {% if "wip" in groups %}
-  <h3>在研项目</h3>
-  <ul class="plain">
-    {% for p in groups.wip %}<li>{{ p.title_zh or p.title_en }}</li>{% endfor %}
-  </ul>
-  {% endif %}
-</section>
-
-{% if P.projects %}
-<section>
-  <h2>科研项目</h2>
-  {% for x in P.projects %}
-  <div class="row">
-    <div>{{ x.text.zh | fmt }}</div>
-    <div class="date">{% if x.years is defined %}{{ x.years.zh }}{% endif %}</div>
-  </div>
-  {% endfor %}
-</section>
-{% endif %}
-
-{% if P.teaching %}
-<section>
-  <h2>教学经历</h2>
-  <ul class="plain">
-    {% for x in P.teaching %}<li>{{ x.zh | fmt }}</li>{% endfor %}
-  </ul>
-</section>
-{% endif %}
-
-{% if P.teaching_interests %}
-<section>
-  <h2>可承担课程</h2>
-  <p>{{ P.teaching_interests.zh }}</p>
-</section>
-{% endif %}
-
-<section>
-  <h2>专业技能</h2>
-  <dl class="kv">
-    {% for s in P.skills %}<dt>{{ s.label.zh }}</dt><dd>{{ s.text.zh | fmt }}</dd>{% endfor %}
-  </dl>
-</section>
-
-{% if full and X.get("references") %}
-<section>
-  <h2>推荐人</h2>
-  <div class="refs">
-    {% for r in X.references %}
-    <div>
-      <p><strong>{{ r.name.zh | fmt }}</strong>{% if r.role.zh %}（{{ r.role.zh }}）{% endif %}</p>
-      {% if r.affiliation.zh %}<p>{{ r.affiliation.zh }}</p>{% endif %}
-      {% if r.email %}<p>{{ r.email }}</p>{% endif %}
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
+{% for s in order %}{{ SECTIONS[s]() }}{% endfor %}
 
 {% if not full %}<p class="updated">更新于 {{ updated }}</p>{% endif %}
 

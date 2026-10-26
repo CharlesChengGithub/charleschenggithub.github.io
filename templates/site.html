@@ -83,7 +83,7 @@
 
     <section id="about">
       <h2>{{ L.nav_about }}</h2>
-      {{ P.bio[lang] | paras }}
+      {{ P.bio[lang] | replace("{n_pub}", (groups.published | length if "published" in groups else 0) | string) | replace("{n_rev}", (groups.review | length if "review" in groups else 0) | string) | paras }}
       <h3 class="label">{{ L.interests }}</h3>
       <ul class="interests">
         {% for it in P.interests[lang] %}<li>{{ it }}</li>{% endfor %}

@@ -132,6 +132,42 @@
     Margin requirements are usually judged by how much forced liquidation they prevent. They also shape who is liquidated. Futures margins cap leverage before positions are opened and trigger margin calls afterward, binding different traders through different constraints. We model speculators and leveraged arbitrageurs interacting through margin calls and price impact. Client data from a Chinese futures brokerage show that trading directions are more concentrated than chance (LSV measure 0.0079, p < 0.001). We derive margin-call thresholds analytically and evaluate results over 100 feasible points in a 16-dimensional parameter space (35,000 paths). Cutting the margin rate from 8% to 4% is lose–lose: liquidation rises at every point, almost entirely among arbitrageurs, and mispricing widens at 95% of points. Within 100 periods, raising the rate to 20% reduces liquidation while increasing mispricing incidence and shifting liquidation to speculators bound by their own leverage limits. Exchanging the roles’ constraints reverses the shift, showing that it tracks the constraint configuration rather than the arbitrage role. At high margins, herding accompanies higher speculator leverage and greater liquidation. Margin policy should be assessed by whose leverage constraint it tightens.
   links: {}
 
+- id: "llm-pricing-floors"
+  show: true
+  group: "review"
+  stage: "review"
+  order: 3
+  lang: "en"
+  authors: [cheng]
+  venue: "Journal of Economic Behavior & Organization"
+  tags: [ai, computational]
+  title_en: "Taking Instructions at Their Word: Price Floors, Prompt Protocols and LLM Pricing Agents"
+  summary_en: |
+    Pricing agents built on large language models take their instructions literally: most open at an announced price floor and obey it even when nothing enforces it. Whether the floor then becomes the price or a launch pad for higher prices depends on the model, and a widely used prompt sentence about customers' willingness to pay pushes long-run prices to about the monopoly level.
+  summary_zh: |
+    大模型定价主体会按字面理解指令：公布底价后，多数主体以底价开局，即使没有强制执行也予以遵守。底价此后成为最终价格还是抬价的起点，取决于所用模型；常用提示词中关于顾客最高支付意愿的表述，会使长期价格升至接近垄断水平。
+  abstract_en: |
+    Competition authorities worry that price floors, such as bans on below-cost sales, may help pricing algorithms collude. I study how pricing agents built on large language models (LLMs) respond to floors in a repeated logit duopoly, using 820 sessions of DeepSeek-V4.1-Flash and a replication with Qwen2.5-7B, each under a pre-analysis plan. The agents take the text of their instructions at its word. Most agents of both models open at an announced floor and obey it even when nothing enforces it, although without the floor about half (DeepSeek) or all (Qwen) of their final prices lie below it. What follows depends on the model. DeepSeek stays at the floor: about two-thirds of its final prices equal it exactly, prices rise no more than mechanical truncation implies (95% confidence interval for the excess: [−0.081, 0.000]), and agents call the floor the focal point for coordination. Qwen climbs from the floor: every market ends above it, and profits close about half the gap between the floor-constrained competitive and monopoly levels. The same literalism governs the prompt protocol. A widely used sentence telling agents that no customer would pay more than a stated amount is taken as a fact about demand: agents open at that amount, long-run prices rise to about the monopoly level, and an unrelated sentence about price display raises them further. Under that protocol the floors rarely bind. Compliance with a stated rule holds across models; whether the floor becomes the price or a launch pad does not.
+  links: {}
+
+- id: "pooled-margin-transmission"
+  show: true
+  group: "review"
+  stage: "review"
+  order: 6
+  lang: "en"
+  authors: [cheng]
+  venue: "Journal of Economic Behavior & Organization"
+  tags: [computational]
+  title_en: "Pooled Margin Accounts and Cross-Product Transmission in Futures Markets: Account Evidence and a Calibrated Agent-Based Model"
+  summary_en: |
+    Losses on other products in the same margin account lead futures investors to cut and close positions, even when their margin constraint does not bind. In a calibrated three-product agent-based model, pooled accounts prevent far more forced liquidations than they transmit across products and leave other products' prices essentially unchanged.
+  summary_zh: |
+    同一保证金账户中其他品种的亏损，会促使期货投资者削减并平掉持仓，这一反应在保证金约束未绑定的账户中同样存在。经间接推断校准的三品种多主体模型显示，合并账户所避免的强制平仓远多于其跨品种传导的强制平仓，对其他品种价格几乎没有影响。
+  abstract_en: |
+    Futures investors often trade several products from one margin account, and daily marking to market turns a loss in one product into an immediate loss of funds for all of them. Using 2019–2020 position records from a Chinese futures brokerage, I measure the mark-to-market gains and losses that an account's previous-day positions incur at the next settlement and estimate how gains and losses on other products change the account's position in a given product. Losses on other products lead investors to cut and close positions. The response is present in accounts whose margin constraint does not bind and is as strong for losses from unrelated sectors and weakly correlated products as for losses from related ones. The additional response of constrained accounts has the expected sign but is imprecise. Gains have weaker effects, confined to correlated products, and raise the probability of opening new products. I then calibrate the strength of this profit-and-loss feedback in a three-product agent-based model by indirect inference and compare pooled accounts with accounts segregated by product. Pooling cuts liquidations in the shocked product by more than it adds in other products, and leaves other products' prices essentially unchanged. The calibrated feedback produces a large but short-lived cross-product position cut with no detectable price effect, and lowers margin use in calm periods. Cross-product position cuts in the data come mainly from investors' own responses. Cross-product forced liquidations arise only through pooled funds, which on net prevent far more liquidations than they transmit.
+  links: {}
+
 - id: "ai-college-majors"
   show: true
   group: "working"
@@ -168,23 +204,22 @@
   show: true
   group: "working"
   order: 3
-  lang: "zh"
+  lang: "en"
   authors: [cheng, zhang]
   tags: [computational]
-  title_en: "Holding Losers: Bias or Patience? The Disposition Effect, Trading Function, and Pricing Efficiency in Futures Markets"
+  title_en: "Bias or Patience? The Disposition Effect, Trading Function, and Pricing Efficiency in Futures Markets"
   title_zh: "持亏是偏差还是耐心？——处置效应、交易功能与期货市场定价效率"
   summary_en: |
-    Account data and an agent-based model of a futures market show that the disposition effect widens mispricing when speculators hold losers but not when arbitrageurs do. With ample arbitrage capital and portfolio margining, arbitrageurs' patience speeds up price correction.
+    Whether holding losers is a bias or patience depends on the function of the trade. Speculators who hold losers widen the futures basis and slow its correction; arbitrageurs who hold losers earn more without moving prices, because arbitrage capital and the margin system set the speed of correction.
   summary_zh: |
-    账户数据和多主体模型显示，投机者的处置效应会扩大期货定价偏离，套利者的同等偏差则不损害定价效率。在套利资本充裕且实行组合保证金时，套利者的“耐心”还能加快价格修正。
+    持有亏损仓位究竟是偏差还是耐心，取决于交易的功能。投机者持亏会扩大期货基差偏离并延缓其修正；套利者持亏获得更高收益，却不影响价格，价格修正速度取决于套利资本与保证金制度。
   abstract_en: |
-    Using account-level data from a Chinese futures brokerage (2019–2020) and an agent-based model with trade-level mental accounting, daily mark-to-market and margin constraints, we study how the market consequences of the disposition effect depend on traders’ function. In the accounts, the disposition effect is significant for the typical investor but highly heterogeneous; kept losing positions underperform kept winners for directional trades but not for calendar-spread trades; and margin tied up in losing positions crowds out new trades. In the model, the disposition effect of speculators widens futures mispricing and slows its correction, convexly in the strength of the bias. The same bias among arbitrageurs does not impair pricing efficiency, and patient arbitrageurs earn more than stop-loss arbitrageurs. Arbitrageur patience speeds up price correction only when arbitrage capital is ample and hedge-leg gains count toward margin; separate margining sharply raises forced liquidations. At the empirically observed distribution of the bias, aggregate effects are small and stem from strongly biased directional traders. Reluctance to realize losses can be a bias or patience; regulation and investor education should distinguish trading functions and, through portfolio margining, provide funding conditions for arbitrage.
-  abstract_zh: |
-    本文利用国内某期货公司2019—2020年的账户数据，结合逐笔记账、逐日盯市和保证金约束的多主体模型，研究处置效应对期货市场定价效率的影响如何取决于交易者的功能。账户证据显示，典型账户存在显著的处置效应，但个体差异很大；方向性持仓“持亏”的事后收益明显劣于“持盈”，跨期价差持仓则不存在这一劣势；亏损仓位占用的保证金越多，账户次日的新开仓越少。模拟结果表明，投机者处置效应会扩大期现偏离、延长修正时间，且影响随偏差强度非线性上升；同等强度的套利者处置效应并不降低市场定价效率，相对于止损纪律，持亏的套利者反而获得更高收益。只有在套利资本充裕且对冲腿收益可计入保证金时，套利者的“耐心”才能转化为更快的价格修正；分别计收保证金使强制平仓显著增加。按样本账户的偏差分布设定时，处置效应的总体市场影响较小，主要来自高偏差的方向性交易者。研究表明，处置效应既可能是偏差也可能是耐心，监管与投资者教育应区分交易功能，并通过组合保证金等制度为正常套利提供资金条件。
+    Holding losing positions is usually treated as a bias that slows price adjustment, but in futures markets its consequences depend on the function of the trade. We combine account-level data from a Chinese futures brokerage with a trade-level agent-based model of daily settlement, margin calls, and forced liquidation, calibrated to the basis of CSI 300 index futures. In the accounts, the disposition effect is concentrated in a reluctance to realize deepening losses, and margin tied up in losers crowds out new positions. In the model, speculators who hold losers keep stale exposure that widens the basis and slows its correction, and the effect rises steeply with the strength of the bias. Arbitrageurs who hold losers earn more than those who cut losses, and those who bank winners early earn less, yet neither half of their bias moves prices: arbitrage capital and the margin system set the speed of correction. Lower margin speeds correction but, under separate margining, more than doubles forced liquidation, a cost that portfolio margining removes. At the empirical distribution of the bias, its aggregate effect on the mean basis deviation is about 5%.
   links: {}
 
+# 2026-10-27 隐藏：论文6 于 10-21 推倒重做，新稿见上面的 pooled-margin-transmission
 - id: "sequential-participation"
-  show: true
+  show: false
   group: "working"
   order: 4
   lang: "zh"

@@ -63,7 +63,7 @@ LABELS = {
     },
     "zh": {
         "html_lang": "zh-CN",
-        "nav_about": "简介", "nav_research": "研究", "nav_books": "著作", "nav_cv": "简历",
+        "nav_about": "个人简介", "nav_research": "研究", "nav_books": "著作", "nav_cv": "简历",
         "nav_software": "开源软件", "nav_projects": "科研项目", "projects": "科研项目",
         "other_lang": "English", "other_href": "../",
         "interests": "研究方向",
@@ -290,10 +290,18 @@ def build_cvs(env, profile, pubs, private):
         tpl = env.get_template(f"cv_{lang}.html")
         html = tpl.render(lang=lang, L=LABELS[lang], P=profile, groups=groups,
                           X=private if full else {}, full=full, photo=photo,
-                          updated=today_str(lang))
+                          updated=today_str(lang), V=None)
         path = BUILD / f"cv_{lang}{'_full' if full else ''}.html"
         path.write_text(html, encoding="utf-8")
         jobs.append((path, pdf))
+    # job-specific Chinese versions (summary, teaching line and section order) live in private.yaml
+    for v in private.get("cv_versions", []):
+        html = env.get_template("cv_zh.html").render(lang="zh", L=LABELS["zh"], P=profile, groups=groups,
+                                                     X=private, full=True, photo=photo,
+                                                     updated=today_str("zh"), V=v)
+        path = BUILD / f"cv_zh_{v['key']}.html"
+        path.write_text(html, encoding="utf-8")
+        jobs.append((path, PRIVATE / "out" / v["file"]))
     return jobs
 
 
