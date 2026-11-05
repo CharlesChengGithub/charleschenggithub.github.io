@@ -22,7 +22,7 @@
   show: true
   group: "published"
   stage: "published"
-  order: 2
+  order: 4
   lang: "zh"
   authors: [kuang, cheng, chen]
   venue: {en: "Journal of Systems Science and Mathematical Sciences", zh: "系统科学与数学"}
@@ -44,8 +44,8 @@
 
 - id: "ai-validation"
   show: true
-  group: "review"
-  stage: "revision"
+  group: "published"
+  stage: "forthcoming"
   order: 1
   lang: "en"
   authors: [cheng, zhang]
@@ -53,11 +53,11 @@
   tags: [ai]
   title_en: "When Artificial Intelligence Generates and Experts Validate: Specialist Allocation and the Aggregate Substitutability of Artificial Intelligence in Research"
   summary_en: |
-    When AI generates candidates and specialists validate them, research as a whole is more complementary to specialists than its generation stage. Calibrated to task-level evidence, the aggregate elasticity of substitution is 0.95, and AI's output elasticity in research is already declining.
+    When AI generates candidates and specialists validate them, research as a whole is more complementary to specialists than its generation stage. In an illustrative calibration, the aggregate elasticity of substitution is 0.95, and ignoring validation overstates AI’s output elasticity in research by 25 percent.
   summary_zh: |
-    人工智能生成候选方案、专家负责验证时，整个研发过程对专家的互补性强于生成环节本身。按任务层面的证据校准，整体替代弹性为 0.95，AI 在研发中的产出弹性已进入下降阶段。
+    人工智能生成候选方案、专家负责验证时，整个研发过程对专家的互补性强于生成环节本身。在示意性校准下，整体替代弹性为 0.95，忽略验证环节会把 AI 在研发中的产出弹性高估 25%。
   abstract_en: |
-    Artificial intelligence (AI) increasingly generates candidate hypotheses, molecules, and designs, but candidates become usable knowledge only after specialists validate them. We study how this division of labor shapes the substitutability between AI and specialists in research as a whole. When generation and validation share a pool of specialists, the aggregate elasticity of substitution is a weighted average of the elasticity within generation and the elasticity between the two tasks, with a weight equal to AI’s share in generation times the share of specialists in validation. Optimal staffing raises this weight as AI becomes abundant, so research is more complementary than its generation stage, and AI’s output elasticity in research rises only while the aggregate elasticity exceeds one. Gains confined to generation draw specialists into validation; sufficiently large gains in validation reverse the flow. In a dynamic general equilibrium model, the aggregate elasticity is a sufficient statistic for local aggregate dynamics, so aggregate data cannot reveal the task structure, but staffing data can. Calibrated to task-level evidence, the aggregate elasticity is 0.95, AI’s output elasticity in research is already declining, and ignoring validation overstates it by 25 percent.
+    Artificial intelligence (AI) increasingly generates candidate hypotheses and designs, but candidates become usable knowledge only after specialists validate them. We study how this division of labor shapes the substitutability between AI and specialists in research as a whole. When generation and validation share a pool of specialists, the aggregate elasticity of substitution is a weighted average of the elasticities within generation and between the two tasks, with a weight equal to AI’s share in generation times the share of specialists in validation. Optimal staffing raises this weight as AI becomes abundant, so research is more complementary than its generation stage, and AI’s output elasticity in research rises only while the aggregate elasticity exceeds one. Gains confined to generation draw specialists into validation; sufficiently large gains in validation reverse the flow. In dynamic general equilibrium, the aggregate elasticity is a sufficient statistic for local aggregate dynamics, so these dynamics cannot reveal the task structure, but staffing data can. In an illustrative calibration to proxy evidence, the aggregate elasticity is 0.95 and ignoring validation overstates AI’s output elasticity by 25 percent. Whether that elasticity is already declining is not robust: the aggregate elasticity exceeds one in 22 percent of parameter draws.
   links: {}
 
 - id: "algorithmic-collusion"
@@ -81,11 +81,15 @@
 - id: "pv-price-floors"
   show: true
   group: "published"
-  stage: "forthcoming"
-  order: 1
+  stage: "published"
+  order: 3
   lang: "en"
   authors: [cheng, zhang]
   venue: "Sustainability"
+  year: 2026
+  volume: "18(21)"
+  pages: "11136"
+  doi: "10.3390/su182111136"
   tags: [computational]
   title_en: "Cost-Based Price Floors, Soft Budgets and Capacity Adjustment in China’s Solar Photovoltaic Industry"
   summary_en: |
@@ -93,25 +97,26 @@
   summary_zh: |
     构建光伏组件行业的多主体模型，评估禁止低于成本销售的政策。以企业自身平均总成本为底价，会降低产能利用率和福利、延缓退出；以行业参考成本为底价能稳定价格，但使退出产能减少 75%。
   abstract_en: |
-    Persistent overcapacity in photovoltaic (PV) manufacturing raises a question for the economic sustainability of renewable-energy supply chains: does protecting producers’ margins help or hinder capacity adjustment? We evaluate cost-based price floors with an agent-based model of China’s PV module industry that features adaptive pricing, market-share-driven investment, credit guarantees and local-government rescues. The model is driven by observed polysilicon prices and reproduces eight of ten moments from public company data within a pre-registered tolerance, although it captures only part of the 2024 price decline. Policy effects are paired comparisons across 200 random seeds. A floor at each firm’s own average total cost lowers utilisation by 5.8 percentage points and welfare by 1.1% over ten years and, in the main specification, slows exit even under hard budgets; its welfare loss grows when products are more substitutable and turns into a gain only when demand is much less price-sensitive, R&D responds strongly to profits or share pressure is very high. An industry-reference floor stabilises prices but cuts capacity exit by 75%; its 1.8% welfare gain falls to 0.5% when surviving firms are not valued as additional variety. An admission standard for new capacity raises utilisation and, while demand plateaus, welfare. Protecting margins is a poor substitute for policies that change the returns to expansion.
-  links: {}
+    Persistent overcapacity in photovoltaic (PV) manufacturing raises a question for the economic sustainability of renewable energy supply chains: does protecting producers’ margins help or hinder capacity adjustment? We evaluate cost-based price floors with an agent-based model of China’s PV module industry that features adaptive pricing, market-share-driven investment, credit guarantees and local government rescues. The model is driven by observed polysilicon prices and reproduces eight of ten moments from public company data within a pre-registered tolerance, although it captures only part of the 2024 price decline. Policy effects are paired comparisons across 200 random seeds. A floor at each firm’s own average total cost lowers utilisation by 5.8 percentage points and welfare by 1.1% over ten years and, in the main specification, slows exit even under hard budgets; its welfare loss grows when products are more substitutable and turns into a gain only when demand is much less price-sensitive, R&D responds strongly to profits or share pressure is very high. An industry-reference floor stabilises prices but cuts capacity exit by 75%; its 1.8% welfare gain falls to 0.5% when surviving firms are not valued as additional variety. An admission standard for new capacity raises utilisation and, while demand plateaus, welfare. Protecting margins is a poor substitute for policies that change the returns to expansion.
+  links:
+    doi: "https://doi.org/10.3390/su182111136"
 
 - id: "overlapping-pilots"
   show: true
-  group: "review"
-  stage: "revision"
-  order: 4
+  group: "published"
+  stage: "forthcoming"
+  order: 2
   lang: "en"
   authors: [cheng, zhang]
   venue: "Sustainability"
   tags: [computational]
-  title_en: "When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations of China’s City Pilot Policies"
+  title_en: "When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations of China’s City Pilot Policies for Sustainable Development"
   summary_en: |
     China's city pilot programmes overlap heavily, so a difference-in-differences evaluation of one programme picks up the effects of the others. In Monte Carlo simulations calibrated to city PM2.5, the focal effect is overstated by a median 78–139% when co-located programmes are equally effective; adding dummies for the other programmes reverses the bias rather than removing it.
   summary_zh: |
     我国城市试点政策高度重叠，单独评估某一试点的双重差分估计会混入其他试点的效应。以城市 PM2.5 校准的蒙特卡洛模拟显示，共存试点与目标试点同样有效时，目标效应被高估的中位数为 78%—139%；加入其他试点虚拟变量这一常见做法只会使偏误反向，不能消除偏误。
   abstract_en: |
-    Pilot programmes are central to China’s environmental and low-carbon policy, and their effects are usually estimated one programme at a time with staggered difference-in-differences (DID) designs. The programmes, however, overlap. Of 297 cities in 2000–2022, 169 hosted two or more of ten national pilot programmes by 2022, and 75–95% of each programme’s treated city-years overlapped with another programme. Monte Carlo simulations calibrated to city PM2.5, with known effects for every programme, show that this overlap contaminates DID evaluations. When each co-located programme is as effective as the focal one, two-way fixed effects, event-study and heterogeneity-robust estimators overstate the focal effect by a median 78–139%. A programme with no effect is found significant in 11–22% of simulated evaluations when co-located effects are small (0.6%), and in 71–100% in a stress test that sets each to the median of three verifiable published estimates (−3.45%). Adding dummies for the other programmes, the most common robustness check, reverses the bias rather than removing it, and pretrend tests rarely detect the problem. Because the contamination is a weighted sum of the other programmes’ effects, with weights fixed by the treatment pattern, it can be computed before any outcome data are examined; we provide code and a checklist.
+    China tests sustainability policies, from low-carbon and sponge cities to new-energy-vehicle promotion, in city pilot programmes, and their effects are usually estimated one programme at a time with staggered difference-in-differences (DID) designs. The programmes, however, overlap. Of 297 cities, 169 hosted two or more of ten national programmes by 2022, and 75–95% of each programme’s treated city-years overlapped with another. Monte Carlo simulations calibrated to city PM2.5, with known effects for every programme, show that this overlap contaminates DID evaluations. When each co-located programme is as effective as the focal one, two-way fixed effects, event-study and heterogeneity-robust estimators overstate the focal effect by a median 78–139%. A programme with no effect is found significant in 11–22% of simulated evaluations when co-located effects are small (0.6%), and in 71–100% in a stress test that sets each to the median of three verifiable published estimates (−3.45%). Adding dummies for the other programmes, the usual robustness check, reverses the bias, and pretrend tests rarely detect the problem. Because the contamination is a weighted sum of the other programmes’ effects, with weights fixed by the treatment pattern, these weights can be computed before outcome data are examined; we provide code and a checklist for evaluations of sustainability policies.
   links: {}
 
 - id: "margin-liquidation"
@@ -139,7 +144,7 @@
   order: 3
   lang: "en"
   authors: [cheng]
-  venue: "Journal of Economic Behavior & Organization"
+  venue: "Journal of Behavioral and Experimental Economics"
   tags: [ai, computational]
   title_en: "Taking Instructions at Their Word: Price Floors, Prompt Protocols and LLM Pricing Agents"
   summary_en: |
@@ -154,10 +159,10 @@
   show: true
   group: "review"
   stage: "review"
-  order: 6
+  order: 4
   lang: "en"
   authors: [cheng]
-  venue: "Journal of Economic Behavior & Organization"
+  venue: "Journal of Futures Markets"
   tags: [computational]
   title_en: "Pooled Margin Accounts and Cross-Product Transmission in Futures Markets: Account Evidence and a Calibrated Agent-Based Model"
   summary_en: |
@@ -186,10 +191,12 @@
 
 - id: "genai-back-office"
   show: true
-  group: "working"
-  order: 2
+  group: "review"
+  stage: "review"
+  order: 1
   lang: "en"
-  authors: [cheng]
+  authors: [cheng, pan]
+  venue: "China Economic Review"
   tags: [ai]
   title_en: "Generative AI Adoption and Back-Office Employment: Early Evidence from Chinese Listed Firms"
   summary_en: |
@@ -259,10 +266,12 @@
 
 - id: "trade-in-subsidies"
   show: true
-  group: "working"
+  group: "review"
+  stage: "review"
   order: 6
   lang: "zh"
-  authors: [cheng]
+  authors: [cheng, zhang]
+  venue: {en: "Public Finance Research", zh: "财政研究"}
   tags: []
   title_en: "The Efficiency and Equity of Trade-in Subsidies: Evidence from the China Household Finance Survey"
   title_en_translated: true
