@@ -104,11 +104,15 @@
 - id: "overlapping-pilots"
   show: true
   group: "published"
-  stage: "forthcoming"
+  stage: "published"
   order: 2
   lang: "en"
   authors: [cheng, zhang]
   venue: "Sustainability"
+  year: 2026
+  volume: "18(21)"
+  pages: "11300"
+  doi: "10.3390/su182111300"
   tags: [computational]
   title_en: "When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations of China’s City Pilot Policies for Sustainable Development"
   summary_en: |
@@ -117,12 +121,13 @@
     我国城市试点政策高度重叠，单独评估某一试点的双重差分估计会混入其他试点的效应。以城市 PM2.5 校准的蒙特卡洛模拟显示，共存试点与目标试点同样有效时，目标效应被高估的中位数为 78%—139%；加入其他试点虚拟变量这一常见做法只会使偏误反向，不能消除偏误。
   abstract_en: |
     China tests sustainability policies, from low-carbon and sponge cities to new-energy-vehicle promotion, in city pilot programmes, and their effects are usually estimated one programme at a time with staggered difference-in-differences (DID) designs. The programmes, however, overlap. Of 297 cities, 169 hosted two or more of ten national programmes by 2022, and 75–95% of each programme’s treated city-years overlapped with another. Monte Carlo simulations calibrated to city PM2.5, with known effects for every programme, show that this overlap contaminates DID evaluations. When each co-located programme is as effective as the focal one, two-way fixed effects, event-study and heterogeneity-robust estimators overstate the focal effect by a median 78–139%. A programme with no effect is found significant in 11–22% of simulated evaluations when co-located effects are small (0.6%), and in 71–100% in a stress test that sets each to the median of three verifiable published estimates (−3.45%). Adding dummies for the other programmes, the usual robustness check, reverses the bias, and pretrend tests rarely detect the problem. Because the contamination is a weighted sum of the other programmes’ effects, with weights fixed by the treatment pattern, these weights can be computed before outcome data are examined; we provide code and a checklist for evaluations of sustainability policies.
-  links: {}
+  links:
+    doi: "https://doi.org/10.3390/su182111300"
 
 - id: "margin-liquidation"
   show: true
   group: "review"
-  stage: "review"
+  stage: "revision"
   order: 5
   lang: "en"
   authors: [cheng, zhang]
@@ -157,12 +162,10 @@
 
 - id: "pooled-margin-transmission"
   show: true
-  group: "review"
-  stage: "review"
-  order: 4
+  group: "working"
+  order: 2
   lang: "en"
   authors: [cheng]
-  venue: "Journal of Futures Markets"
   tags: [computational]
   title_en: "Pooled Margin Accounts and Cross-Product Transmission in Futures Markets: Account Evidence and a Calibrated Agent-Based Model"
   summary_en: |
