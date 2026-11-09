@@ -45,11 +45,15 @@
 - id: "ai-validation"
   show: true
   group: "published"
-  stage: "forthcoming"
+  stage: "published"
   order: 1
   lang: "en"
   authors: [cheng, zhang]
   venue: "Systems"
+  year: 2026
+  volume: "14(11)"
+  pages: "1432"
+  doi: "10.3390/systems14111432"
   tags: [ai]
   title_en: "When Artificial Intelligence Generates and Experts Validate: Specialist Allocation and the Aggregate Substitutability of Artificial Intelligence in Research"
   summary_en: |
@@ -58,7 +62,8 @@
     人工智能生成候选方案、专家负责验证时，整个研发过程对专家的互补性强于生成环节本身。在示意性校准下，整体替代弹性为 0.95，忽略验证环节会把 AI 在研发中的产出弹性高估 25%。
   abstract_en: |
     Artificial intelligence (AI) increasingly generates candidate hypotheses and designs, but candidates become usable knowledge only after specialists validate them. We study how this division of labor shapes the substitutability between AI and specialists in research as a whole. When generation and validation share a pool of specialists, the aggregate elasticity of substitution is a weighted average of the elasticities within generation and between the two tasks, with a weight equal to AI’s share in generation times the share of specialists in validation. Optimal staffing raises this weight as AI becomes abundant, so research is more complementary than its generation stage, and AI’s output elasticity in research rises only while the aggregate elasticity exceeds one. Gains confined to generation draw specialists into validation; sufficiently large gains in validation reverse the flow. In dynamic general equilibrium, the aggregate elasticity is a sufficient statistic for local aggregate dynamics, so these dynamics cannot reveal the task structure, but staffing data can. In an illustrative calibration to proxy evidence, the aggregate elasticity is 0.95 and ignoring validation overstates AI’s output elasticity by 25 percent. Whether that elasticity is already declining is not robust: the aggregate elasticity exceeds one in 22 percent of parameter draws.
-  links: {}
+  links:
+    doi: "https://doi.org/10.3390/systems14111432"
 
 - id: "algorithmic-collusion"
   show: true
