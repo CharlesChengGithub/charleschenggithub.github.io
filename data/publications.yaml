@@ -258,18 +258,20 @@
 
 - id: "managers-underreact"
   show: true
-  group: "working"
+  group: "review"
+  stage: "review"
   order: 5
   lang: "en"
-  authors: [cheng]
+  authors: [cheng, jiang]
+  venue: "Pacific-Basin Finance Journal"
   tags: []
-  title_en: "Do Managers Underreact? Subjective Uncertainty and the Revision of Range Earnings Forecasts"
+  title_en: "Do Managers Underreact? Subjective Uncertainty and the Revision of Range Earnings Forecasts in China"
   summary_en: |
     The width of a range earnings forecast measures the manager's own uncertainty. Managers underreact to news, and higher subjective uncertainty does not amplify overreaction, contrary to a recent class of belief-formation models.
   summary_zh: |
     业绩预告的区间宽度直接度量管理层自身的不确定性。管理层对信息反应不足，主观不确定性较高时也没有出现更强的过度反应，与近期一类预期形成理论的预测不同。
   abstract_en: |
-    Theories of belief formation disagree on whether expectations underreact or overreact to news, and a recent class of models predicts that overreaction strengthens when subjective uncertainty is high. We test this prediction using the range earnings forecasts that Chinese listed firms issue before the end of a reporting period. The width of a manager’s forecast range provides a direct, firm-level measure of the manager’s own uncertainty at the time of the forecast. Using 20,391 firm-period forecast sequences from 2010 to 2025, we regress the next revision of expectations on the initial forecast revision and its interaction with range width. Managers underreact: an upward initial revision predicts a further upward revision, and the effect is four times larger when the next information point is the manager’s own follow-up forecast. Subjective uncertainty does not amplify overreaction. The interaction is close to zero, precisely estimated, and indistinguishable from a simulated benchmark that captures how firms steer reported earnings into their own forecast ranges. Range width does carry information about uncertainty: it rises with recent earnings volatility, and outcome dispersion rises with width. As earlier Chinese evidence suggests, realized earnings cluster just above the lower bound of the range, the opposite of the upper-bound tilt documented for U.S. firms.
+    Managers’ expectations shape corporate investment and the earnings guidance that investors rely on, yet whether these expectations underreact or overreact to news remains contested. A recent class of models predicts that overreaction strengthens when subjective uncertainty is high. We test this prediction using the range earnings forecasts that Chinese listed firms issue before the end of a reporting period, whose width is the manager’s own contemporaneous statement of uncertainty. Using 20,391 firm-period forecast sequences from 2010 to 2025, we regress the next revision of expectations on the initial forecast revision and its interaction with range width. Managers underreact: an upward initial revision predicts a further upward revision, and the effect is nearly three times as large when the next information point is the manager’s own follow-up forecast. Persistence follows both upward and downward initial revisions, so the gradual release of bad news cannot fully account for it. Subjective uncertainty does not amplify overreaction. The interaction is close to zero, precisely estimated, and indistinguishable from a simulated benchmark that allows for both the steering of reported earnings into forecast ranges and the winsorizing of the data. Range width does carry information about uncertainty: it rises with recent earnings volatility, and outcome dispersion rises with width. As earlier Chinese evidence suggests, realized earnings cluster just above the lower bound of the range, the opposite of the upper-bound tilt documented for U.S. firms.
   links: {}
 
 - id: "trade-in-subsidies"
