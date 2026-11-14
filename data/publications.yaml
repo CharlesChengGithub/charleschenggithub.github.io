@@ -131,9 +131,9 @@
 
 - id: "margin-liquidation"
   show: true
-  group: "review"
-  stage: "revision"
-  order: 5
+  group: "published"
+  stage: "forthcoming"
+  order: 0
   lang: "en"
   authors: [cheng, zhang]
   venue: "Systems"
@@ -217,10 +217,12 @@
 
 - id: "disposition-effect"
   show: true
-  group: "working"
-  order: 3
+  group: "review"
+  stage: "review"
+  order: 7
   lang: "en"
   authors: [cheng, zhang]
+  venue: "Asia-Pacific Journal of Financial Studies"
   tags: [computational]
   title_en: "Bias or Patience? The Disposition Effect, Trading Function, and Pricing Efficiency in Futures Markets"
   title_zh: "持亏是偏差还是耐心？——处置效应、交易功能与期货市场定价效率"
