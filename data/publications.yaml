@@ -13,6 +13,7 @@
 #   summary_*  一两句话的概要，显示在题目下面
 #   abstract_* 稿件摘要原文；中文页缺中文摘要时显示英文摘要
 #   venue     字符串，或 {en: ..., zh: ...}（中文期刊用后者）
+#   index     可选：期刊收录标注，只在简历里显示在条目末尾，如 "SSCI"、"CSCD"
 #   links     可选：pdf / code / slides / ssrn / doi 等，值为网址
 #   show      false 表示暂不显示
 #
@@ -27,6 +28,7 @@
   lang: "zh"
   authors: [kuang, cheng, chen]
   venue: {en: "Journal of Systems Science and Mathematical Sciences", zh: "系统科学与数学"}
+  index: "CSCD"
   year: 2022
   volume: "42(8)"
   pages: "2126–2141"
@@ -51,6 +53,7 @@
   lang: "en"
   authors: [cheng, zhang]
   venue: "Systems"
+  index: "SSCI"
   year: 2026
   volume: "14(11)"
   pages: "1432"
@@ -92,6 +95,7 @@
   lang: "en"
   authors: [cheng, zhang]
   venue: "Sustainability"
+  index: "SSCI"
   year: 2026
   volume: "18(21)"
   pages: "11136"
@@ -115,6 +119,7 @@
   lang: "en"
   authors: [cheng, zhang]
   venue: "Systems"
+  index: "SSCI"
   year: 2026
   volume: "14(11)"
   pages: "1466"

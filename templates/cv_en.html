@@ -1,5 +1,5 @@
 {% macro pub_item(p) %}
-<li>{% if p.group == "book" %}<span class="book-title">{{ title_of(p, "en") }}</span>{% else %}“{{ title_of(p, "en") }}”{% endif %}{% set co = coauthors(p, "en") %}{% if co %} ({{ co }}){% endif %}. <span class="status">{{ status(p, "en") }}</span>.</li>
+<li>{% if p.group == "book" %}<span class="book-title">{{ title_of(p, "en") }}</span>{% else %}“{{ title_of(p, "en") }}”{% endif %}{% set co = coauthors(p, "en") %}{% if co %} ({{ co }}){% endif %}. {% set st = status(p, "en") %}{% set ix = p.get("index") %}{% if ix and st.endswith(" (in Chinese)") %}<span class="status">{{ st[:-13] }}</span> (in Chinese; {{ ix }}){% else %}<span class="status">{{ st }}</span>{% if ix %} ({{ ix }}){% endif %}{% endif %}.</li>
 {% endmacro %}
 <!doctype html>
 <html lang="en">
