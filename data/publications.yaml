@@ -106,29 +106,6 @@
   links:
     doi: "https://doi.org/10.3390/su182111136"
 
-- id: "overlapping-pilots"
-  show: true
-  group: "published"
-  stage: "published"
-  order: 2
-  lang: "en"
-  authors: [cheng, zhang]
-  venue: "Sustainability"
-  year: 2026
-  volume: "18(21)"
-  pages: "11300"
-  doi: "10.3390/su182111300"
-  tags: [computational]
-  title_en: "When Pilots Overlap: Contamination Bias in Difference-in-Differences Evaluations of China’s City Pilot Policies for Sustainable Development"
-  summary_en: |
-    China's city pilot programmes overlap heavily, so a difference-in-differences evaluation of one programme picks up the effects of the others. In Monte Carlo simulations calibrated to city PM2.5, the focal effect is overstated by a median 78–139% when co-located programmes are equally effective; adding dummies for the other programmes reverses the bias rather than removing it.
-  summary_zh: |
-    我国城市试点政策高度重叠，单独评估某一试点的双重差分估计会混入其他试点的效应。以城市 PM2.5 校准的蒙特卡洛模拟显示，共存试点与目标试点同样有效时，目标效应被高估的中位数为 78%—139%；加入其他试点虚拟变量这一常见做法只会使偏误反向，不能消除偏误。
-  abstract_en: |
-    China tests sustainability policies, from low-carbon and sponge cities to new-energy-vehicle promotion, in city pilot programmes, and their effects are usually estimated one programme at a time with staggered difference-in-differences (DID) designs. The programmes, however, overlap. Of 297 cities, 169 hosted two or more of ten national programmes by 2022, and 75–95% of each programme’s treated city-years overlapped with another. Monte Carlo simulations calibrated to city PM2.5, with known effects for every programme, show that this overlap contaminates DID evaluations. When each co-located programme is as effective as the focal one, two-way fixed effects, event-study and heterogeneity-robust estimators overstate the focal effect by a median 78–139%. A programme with no effect is found significant in 11–22% of simulated evaluations when co-located effects are small (0.6%), and in 71–100% in a stress test that sets each to the median of three verifiable published estimates (−3.45%). Adding dummies for the other programmes, the usual robustness check, reverses the bias, and pretrend tests rarely detect the problem. Because the contamination is a weighted sum of the other programmes’ effects, with weights fixed by the treatment pattern, these weights can be computed before outcome data are examined; we provide code and a checklist for evaluations of sustainability policies.
-  links:
-    doi: "https://doi.org/10.3390/su182111300"
-
 - id: "margin-liquidation"
   show: true
   group: "published"
@@ -172,10 +149,12 @@
 
 - id: "pooled-margin-transmission"
   show: true
-  group: "working"
-  order: 2
+  group: "review"
+  stage: "review"
+  order: 8
   lang: "en"
   authors: [cheng]
+  venue: "Computational Economics"
   tags: [computational]
   title_en: "Pooled Margin Accounts and Cross-Product Transmission in Futures Markets: Account Evidence and a Calibrated Agent-Based Model"
   summary_en: |
@@ -336,6 +315,20 @@
     梳理系统性金融风险监测预警方法，区分危机概率识别与脆弱性监测两类任务，讨论机器学习和文本方法在其中的作用，以及这些方法在中国情境下的适用边界。
   abstract_zh: |
     系统性金融风险监测预警是宏观审慎监管的重要内容。本文在梳理国内外文献的基础上，将相关方法区分为两类任务：一类是以信号提取法和多元选择模型为代表的危机概率识别，另一类是以信贷缺口、债务偿付比率、金融周期、债务可持续性分析、投入产出分析和网络分析为代表的脆弱性监测与结构分析。树模型、循环神经网络、文本方法和在线学习等数据驱动方法，主要在前述两类任务中扩展非线性识别、时序建模、文本信息提取和模型组合能力。总体来看，不同方法在识别对象、时间窗口、数据条件和解释能力上各有侧重，尚不存在适用于所有场景的统一预警框架。对中国而言，更可行的做法是结合房地产、地方政府债务、结构变化和中文文本信息等现实特征，把危机识别、脆弱性监测与数据驱动方法放在同一框架下相互印证。
+  links: {}
+
+- id: "futures-investor-book"
+  show: true
+  group: "book"
+  order: 0
+  lang: "zh"
+  authors: [kuang, cheng]
+  tags: [behavioral]
+  title_en: "Investor Behavior in Futures Markets"
+  title_en_translated: true
+  title_zh: "期货市场投资者行为研究"
+  status_zh: "专著，经济科学出版社，2023 年 2 月"
+  status_en: "Monograph (in Chinese), Economic Science Press, 2023"
   links: {}
 
 - id: "abm-book"
