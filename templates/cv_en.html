@@ -136,27 +136,7 @@
 </section>
 {% endif %}
 
-<section>
-  <h2>Skills</h2>
-  <dl class="kv">
-    {% for s in P.skills %}<dt>{{ s.label.en }}</dt><dd>{{ s.text.en | fmt }}</dd>{% endfor %}
-  </dl>
-</section>
-
-{% if full and X.get("references") %}
-<section>
-  <h2>References</h2>
-  <div class="refs">
-    {% for r in X.references %}
-    <div>
-      <p><strong>{{ r.name.en | fmt }}</strong>{% if r.role.en %} ({{ r.role.en }}){% endif %}</p>
-      {% if r.affiliation.en %}<p>{{ r.affiliation.en }}</p>{% endif %}
-      {% if r.email %}<p>{{ r.email }}</p>{% endif %}
-    </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
+{#- Skills 和 References 两栏已删（2026-11-17 用户要求）；数据仍在 profile.yaml 和 private.yaml -#}
 
 {% if not full %}<p class="updated">Last updated: {{ updated }}</p>{% endif %}
 
