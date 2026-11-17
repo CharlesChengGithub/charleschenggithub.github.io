@@ -4,6 +4,7 @@
 #   group     published（已发表/录用）| review（返修/在审）| working（工作论文）| book（著作）| wip（在研，默认不显示）
 #   stage     group 为 review 时必填：revision（返修）| review（在审）
 #             group 为 published 时必填：forthcoming（已录用，卷期未出）| published（已出版，需 year、volume，可加 pages、doi）
+#             页面和简历只显示"期刊, 年份"，volume、pages 不显示（2026-11-17 用户要求）
 #   order     组内排序，小的在前
 #   lang      稿件写作语言：en | zh。zh 稿在英文页上会标 "(in Chinese)"
 #   authors   作者键，按署名顺序；键在 profile.yaml 的 people 里定义

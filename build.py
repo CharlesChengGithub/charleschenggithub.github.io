@@ -165,9 +165,8 @@ def status_line(pub, lang):
     if g == "published":
         if pub["stage"] == "forthcoming":
             return L["forthcoming"].format(venue=venue_of(pub, lang))
-        s = f'*{venue_of(pub, lang)}*, {pub["year"]}, {pub["volume"]}'
-        if pub.get("pages"):
-            s += f': {pub["pages"]}'
+        # 只显示期刊和年份；卷期、页码留在数据里但不显示（2026-11-17 用户要求）
+        s = f'*{venue_of(pub, lang)}*, {pub["year"]}'
         return s + (L["in_chinese"] if pub["lang"] == "zh" else "")
     if g == "book":
         s = L["book"] + (L["in_chinese"] if pub["lang"] == "zh" else "")
