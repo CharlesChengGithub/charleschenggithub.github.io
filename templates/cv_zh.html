@@ -1,6 +1,6 @@
 {#- Sections are macros so that job-specific versions (V, from cv_private/private.yaml) can reorder them
     and override the summary and teaching lines. Public and generic CVs use DEFAULT_ORDER. -#}
-{% set DEFAULT_ORDER = ["basic", "summary", "education", "work", "interests", "research", "projects", "teaching", "teaching_interests", "skills", "references"] %}
+{% set DEFAULT_ORDER = ["basic", "summary", "education", "work", "interests", "research", "projects", "teaching", "teaching_interests"] %}
 {% set order = V.order if V else DEFAULT_ORDER %}
 {% set summary_text = V.summary_zh if V and V.summary_zh is defined else P.cv_summary_zh %}
 {% set teaching_text = V.teaching_zh if V and V.teaching_zh is defined else (P.teaching_interests.zh if P.teaching_interests else "") %}
