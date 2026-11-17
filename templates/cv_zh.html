@@ -6,7 +6,7 @@
 {% set teaching_text = V.teaching_zh if V and V.teaching_zh is defined else (P.teaching_interests.zh if P.teaching_interests else "") %}
 
 {% macro pub_item(p) %}
-<li>{{ authors(p, "zh") }}. {% if p.group == "book" %}<span class="book-title">{{ title_of(p, "zh") }}</span>{% else %}{{ title_of(p, "zh") }}{% endif %}. <span class="status">{{ status(p, "zh") }}</span>.</li>
+<li>{{ authors(p, "zh") }}. {% if p.group == "book" %}<span class="book-title">{{ title_of(p, "zh") }}</span>{% else %}{{ p.title_en if p.lang == "en" else title_of(p, "zh") }}{% endif %}. {% set st = status(p, "zh") %}<span class="status">{{ st }}</span>{% if not st.endswith("）") %}.{% endif %}</li>
 {% endmacro %}
 
 {% macro sec_basic() %}

@@ -128,8 +128,8 @@ teaching: []
 
 # 可承担课程（只写在简历里）
 teaching_interests:
-  en: Finance; Investments; FinTech; Behavioral Finance; Econometrics; Python Programming; Financial Data Analysis and Visualization; introductory computing and AI literacy courses
-  zh: 金融学、证券投资学、金融科技、行为金融学、计量经济学、Python 程序设计、金融数据分析与可视化；亦可承担计算机基础与人工智能通识类课程
+  en: Finance; Microeconomics; Macroeconomics; Investments; FinTech; Behavioral Finance; Econometrics; Python Programming; Financial Data Analysis and Visualization; introductory computing and AI literacy courses
+  zh: 金融学、微观经济学、宏观经济学、证券投资学、金融科技、行为金融学、计量经济学、Python 程序设计、金融数据分析与可视化；亦可承担计算机基础与人工智能通识类课程
 
 skills:
   - label: {en: Programming, zh: 编程}

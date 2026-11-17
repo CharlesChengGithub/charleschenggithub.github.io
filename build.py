@@ -78,9 +78,9 @@ LABELS = {
         "with": "与",
         "and": "、",
         "authors_todo": "[待确认：署名]",
-        "revision": "返修中，*{venue}*",
-        "review": "在审，*{venue}*",
-        "forthcoming": "*{venue}*，已录用",
+        "revision": "*{venue}*（返修中）",
+        "review": "*{venue}*（在审）",
+        "forthcoming": "*{venue}*（已录用）",
         "working": "工作论文",
         "book": "书稿",
         "in_chinese": "",
@@ -142,8 +142,9 @@ def author_list(pub, people, lang):
     parts = []
     for k in pub["authors"]:
         n = str(escape(name_of(k, people, name_lang)))
-        parts.append(f"<strong>{n}</strong>" if people[k].get("self") else n)
-    sep = "，" if name_lang == "zh" else ", "
+        cls = ' class="cjk"' if name_lang == "zh" else ""
+        parts.append(f"<strong{cls}>{n}</strong>" if people[k].get("self") else n)
+    sep = ", "
     s = sep.join(parts)
     if not pub.get("authors_confirmed", True):
         s += f' <span class="todo">{LABELS[lang]["authors_todo"]}</span>'
@@ -176,6 +177,14 @@ def status_line(pub, lang):
     if g == "working":
         return L["working"] + (L["in_chinese"] if pub["lang"] == "zh" else "")
     return ""
+
+
+def status_html(pub, lang):
+    """Status line as HTML; Chinese journal names get class "cjk" so the CV sets them upright."""
+    s = fmt(status_line(pub, lang))
+    if lang == "zh" and isinstance(pub.get("venue"), dict):
+        s = Markup(str(s).replace("<em>", '<em class="cjk">'))
+    return s
 
 
 def title_of(pub, lang):
@@ -242,7 +251,7 @@ def make_env(profile):
     env.globals.update(
         coauthors=lambda p, lang: fmt(coauthor_line(p, people, lang)),
         authors=lambda p, lang: author_list(p, people, lang),
-        status=lambda p, lang: fmt(status_line(p, lang)),
+        status=status_html,
         title_of=title_of,
         abstract_of=abstract_of,
     )

@@ -114,6 +114,10 @@ h3 {
 .pubs .book-title { font-style: italic; }
 .cv-zh .pubs .book-title { font-style: normal; }
 .cv-en .pubs .status em { font-style: italic; }
+/* 中文简历：期刊名用正文色突出，英文刊名斜体、中文刊名正体；本人姓名用黑体加粗 */
+.cv-zh .pubs .status em { color: var(--fg); font-style: italic; }
+.cv-zh .pubs .status em.cjk { font-style: normal; }
+.cv-zh strong.cjk { font-family: var(--cjk-sans); font-weight: 600; }
 
 .plain { margin: 0; padding-left: 4.5mm; }
 .plain li { margin-bottom: 1mm; }
